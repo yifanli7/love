@@ -1,0 +1,29 @@
+{
+  "id": "m1_event1",
+  "title": "初次见面",
+  "description": "今天，你在公园散步时无意间遇到了一位女孩，她似乎正在寻找什么东西。",
+  "special": false,
+  "options": [
+    {
+      "text": "上前询问是否需要帮助",
+      "effects": {
+        "male": {"money": -1, "affection": 2, "health": 0},
+        "female": {"money": 0, "affection": 3, "health": 0}
+      }
+    },
+    {
+      "text": "默默观察她的行动",
+      "effects": {
+        "male": {"money": 0, "affection": 1, "health": 0},
+        "female": {"money": 0, "affection": 0, "health": 0}
+      }
+    },
+    {
+      "text": "装作没看见继续走开",
+      "effects": {
+        "male": {"money": 0, "affection": 0, "health": 0},
+        "female": {"money": 0, "affection": -1, "health": 0}
+      }
+    }
+  ]
+} 

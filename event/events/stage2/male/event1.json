@@ -1,0 +1,29 @@
+{
+  "id": "m2_event1",
+  "title": "约会计划",
+  "description": "你想要邀请她出去约会，考虑了几个不同的选择。",
+  "special": false,
+  "options": [
+    {
+      "text": "邀请她去高级餐厅吃饭",
+      "effects": {
+        "male": {"money": -8, "affection": 5, "health": 0},
+        "female": {"money": 0, "affection": 6, "health": 0}
+      }
+    },
+    {
+      "text": "邀请她去公园野餐",
+      "effects": {
+        "male": {"money": -3, "affection": 3, "health": 1},
+        "female": {"money": 0, "affection": 4, "health": 1}
+      }
+    },
+    {
+      "text": "邀请她去看电影",
+      "effects": {
+        "male": {"money": -4, "affection": 4, "health": 0},
+        "female": {"money": 0, "affection": 3, "health": 0}
+      }
+    }
+  ]
+} 

@@ -1,0 +1,29 @@
+{
+  "id": "m3_event1",
+  "title": "求婚计划",
+  "description": "你决定向她求婚，正在考虑如何安排这个重要时刻。",
+  "special": true,
+  "options": [
+    {
+      "text": "在豪华餐厅安排一场盛大的求婚",
+      "effects": {
+        "male": {"money": -15, "affection": 10, "health": -2},
+        "female": {"money": 0, "affection": 15, "health": 0}
+      }
+    },
+    {
+      "text": "在你们第一次相遇的地方求婚",
+      "effects": {
+        "male": {"money": -5, "affection": 12, "health": 0},
+        "female": {"money": 0, "affection": 12, "health": 0}
+      }
+    },
+    {
+      "text": "在家中布置温馨环境求婚",
+      "effects": {
+        "male": {"money": -3, "affection": 8, "health": 0},
+        "female": {"money": 0, "affection": 10, "health": 0}
+      }
+    }
+  ]
+} 

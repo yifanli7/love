@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱情冒险 - 文字roguelike游戏</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="app">
+        <!-- 游戏开始页面 -->
+        <div id="intro-screen" class="screen">
+            <div class="container">
+                <h1>爱情冒险</h1>
+                <p>欢迎来到这场爱情冒险游戏！</p>
+                <p>在这个文字roguelike游戏中，你将跟随一对男女主角的爱情故事，从陌生人到朋友，再到恋人，最后成为夫妻。</p>
+                <p>每个阶段都有10个随机事件，你需要做出选择，这些选择将影响角色的金钱、好感度和健康度。</p>
+                <p>注意保持良好的属性状态，以通过每个阶段的考验。任何属性降至0以下，游戏就会结束。</p>
+                <button id="start-btn" class="btn">我已知晓</button>
+            </div>
+        </div>
+
+        <!-- 角色命名页面 -->
+        <div id="naming-screen" class="screen hidden">
+            <div class="container">
+                <h1>角色命名</h1>
+                <div class="input-group">
+                    <label for="male-name">男主角名字：</label>
+                    <input type="text" id="male-name" placeholder="默认为A">
+                </div>
+                <div class="input-group">
+                    <label for="female-name">女主角名字：</label>
+                    <input type="text" id="female-name" placeholder="默认为B">
+                </div>
+                <button id="name-confirm-btn" class="btn">开始游戏</button>
+            </div>
+        </div>
+
+        <!-- 阶段介绍页面 -->
+        <div id="stage-intro-screen" class="screen hidden">
+            <div class="container">
+                <h1 id="stage-title">第一阶段：相识</h1>
+                <p id="stage-description">在这个阶段，两位主角初次相遇，你需要帮助他们建立友谊。</p>
+                <p>要求：结束时两方金钱之和大于15，双方好感度均大于50，健康度均大于80。</p>
+                <div id="stage-specific-info"></div>
+                <button id="stage-start-btn" class="btn">进入阶段</button>
+            </div>
+        </div>
+
+        <!-- 阶段完成页面 -->
+        <div id="stage-complete-screen" class="screen hidden">
+            <div class="container">
+                <h1 id="completion-title">恭喜！</h1>
+                <p id="relationship-status">男女主角已成为朋友！</p>
+                <div id="stats-summary"></div>
+                <button id="next-stage-btn" class="btn">进入下一阶段</button>
+            </div>
+        </div>
+
+        <!-- 游戏主界面 -->
+        <div id="game-screen" class="screen hidden">
+            <div class="container">
+                <div class="status-bar">
+                    <div class="character-status">
+                        <h3 id="male-name-display">男主角</h3>
+                        <div class="stats">
+                            <div class="stat">金钱: <span id="male-money">20</span></div>
+                            <div class="stat">好感度: <span id="male-affection">5</span></div>
+                            <div class="stat">健康度: <span id="male-health">60</span></div>
+                        </div>
+                    </div>
+                    <div class="relationship-status">
+                        <div id="relationship-display">陌生人</div>
+                    </div>
+                    <div class="character-status">
+                        <h3 id="female-name-display">女主角</h3>
+                        <div class="stats">
+                            <div class="stat">金钱: <span id="female-money">20</span></div>
+                            <div class="stat">好感度: <span id="female-affection">5</span></div>
+                            <div class="stat">健康度: <span id="female-health">60</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-area">
+                    <div id="turn-indicator"></div>
+                    <h2 id="event-title">事件标题</h2>
+                    <p id="event-description">事件描述...</p>
+                    <div class="options">
+                        <button class="option-btn" data-index="0">选项1</button>
+                        <button class="option-btn" data-index="1">选项2</button>
+                        <button class="option-btn" data-index="2">选项3</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏结束页面 -->
+        <div id="game-over-screen" class="screen hidden">
+            <div class="container">
+                <h1>游戏结束</h1>
+                <p id="game-over-reason">游戏结束原因...</p>
+                <div id="story-summary"></div>
+                <button id="restart-btn" class="btn">重新开始</button>
+            </div>
+        </div>
+
+        <!-- 游戏胜利页面 -->
+        <div id="victory-screen" class="screen hidden">
+            <div class="container">
+                <h1>恭喜胜利！</h1>
+                <p>男女主角已经成为了幸福的夫妻！</p>
+                <div id="victory-stats-summary"></div>
+                <div id="victory-story-summary"></div>
+                <button id="victory-restart-btn" class="btn">重新开始</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html> 
