@@ -92,23 +92,23 @@ def check_game_over(game_state):
         if stage == 1:
             if male["money"] + female["money"] <= 15:
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能发展为朋友关系"
-            if male["affection"] <= 5 or female["affection"] <= 5:
+            if male["affection"] <= 50 or female["affection"] <= 50:
                 return True, f"双方好感度不够，未能发展为朋友关系"
-            if male["health"] <= 70 or female["health"] <= 70:
+            if male["health"] <= 80 or female["health"] <= 80:
                 return True, f"健康状况不佳，未能发展为朋友关系"
         elif stage == 2:
-            if male["money"] + female["money"] <= 10:
+            if male["money"] + female["money"] <= 30:
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能发展为恋人关系"
             if male["affection"] <= 80 or female["affection"] <= 80:
                 return True, f"双方好感度不够，未能发展为恋人关系"
-            if male["health"] <= 60 or female["health"] <= 60:
+            if male["health"] <= 80 or female["health"] <= 80:
                 return True, f"健康状况不佳，未能发展为恋人关系"
         elif stage == 3:
-            if male["money"] + female["money"] <= 20:
+            if male["money"] + female["money"] <= 50:
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能步入婚姻"
             if male["affection"] <= 100 or female["affection"] <= 100:
                 return True, f"双方好感度不够，未能步入婚姻"
-            if male["health"] <= 60 or female["health"] <= 60:
+            if male["health"] <= 80 or female["health"] <= 80:
                 return True, f"健康状况不佳，未能步入婚姻"
     
     return False, ""
@@ -152,7 +152,13 @@ def start_stage():
     if not game_state:
         return jsonify({"status": "error", "message": "游戏未初始化"}), 400
     
+    # 重置阶段事件计数
     game_state["events_in_stage"] = 0
+    # 确保阶段开始时，由男性角色开始
+    game_state["current_turn"] = "male"
+    
+    # 输出调试信息
+    print(f"开始阶段 {game_state['stage']}，重置事件计数，当前角色设为 {game_state['current_turn']}")
     
     response = make_response(jsonify({"status": "success", "game_state": game_state}))
     return set_game_state(response, game_state)
@@ -229,14 +235,22 @@ def choose_option():
     })
     
     # 切换角色回合
+    current_turn_before = game_state["current_turn"]
     game_state["current_turn"] = "female" if game_state["current_turn"] == "male" else "male"
     game_state["events_in_stage"] += 1
+    
+    # 输出调试信息
+    print(f"事件完成：阶段 {game_state['stage']}，回合从 {current_turn_before} 切换到 {game_state['current_turn']}，阶段中的事件数：{game_state['events_in_stage']}")
     
     # 检查阶段是否完成
     stage_complete = False
     if game_state["events_in_stage"] >= 10:
+        # 输出调试信息
+        print(f"阶段 {game_state['stage']} 达到10个事件，进行判定")
+        
         game_over, reason = check_game_over(game_state)
         if game_over:
+            print(f"游戏结束原因: {reason}")
             return jsonify({
                 "status": "game_over",
                 "reason": reason,
@@ -246,13 +260,17 @@ def choose_option():
         # 升级关系
         if game_state["stage"] == 1:
             game_state["relationship"] = "朋友"
+            print("关系升级为朋友")
         elif game_state["stage"] == 2:
             game_state["relationship"] = "恋人"
+            print("关系升级为恋人")
         elif game_state["stage"] == 3:
             game_state["relationship"] = "夫妻"
+            print("关系升级为夫妻")
             
             # 检查是否胜利
             if check_victory(game_state):
+                print("游戏胜利")
                 return jsonify({
                     "status": "victory",
                     "game_state": game_state
@@ -260,13 +278,17 @@ def choose_option():
         
         # 增加阶段
         game_state["stage"] += 1
+        # 重置事件计数
+        game_state["events_in_stage"] = 0
         # 重置当前回合为男性角色，以便在下一阶段开始时从男性角色开始
         game_state["current_turn"] = "male"
         stage_complete = True
+        print(f"进入新阶段: {game_state['stage']}")
     else:
         # 检查属性是否小于0
         game_over, reason = check_game_over(game_state)
         if game_over:
+            print(f"游戏提前结束: {reason}")
             return jsonify({
                 "status": "game_over",
                 "reason": reason,
