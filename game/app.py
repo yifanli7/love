@@ -4,9 +4,15 @@ import random
 import os
 from datetime import datetime, timedelta
 import secrets
+import sys
 
 # 获取当前文件的目录
 base_dir = os.path.dirname(os.path.abspath(__file__))
+# 添加到Python路径
+sys.path.insert(0, os.path.dirname(base_dir))
+
+# 导入故事生成器
+from game.story_generator import generate_love_story
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
@@ -305,6 +311,33 @@ def choose_option():
 def reset_game():
     session.pop('game_state', None)
     return jsonify({"status": "success"})
+
+@app.route('/generate_story', methods=['POST'])
+def generate_story_api():
+    game_state = get_game_state()
+    if not game_state:
+        return jsonify({"status": "error", "message": "游戏未初始化"}), 400
+    
+    try:
+        # 生成故事
+        story = generate_love_story(game_state)
+        
+        # 将故事保存到游戏状态中
+        if 'story' not in game_state:
+            game_state['story'] = {}
+        
+        current_stage = game_state['stage'] - 1  # 因为阶段已经+1了
+        game_state['story'][str(current_stage)] = story
+        session['game_state'] = game_state
+        
+        return jsonify({
+            "status": "success", 
+            "story": story,
+            "stage": current_stage
+        })
+    except Exception as e:
+        print(f"生成故事时出错: {str(e)}")
+        return jsonify({"status": "error", "message": f"生成故事失败: {str(e)}"}), 500
 
 if __name__ == '__main__':
     # 确保静态数据目录存在

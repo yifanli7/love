@@ -213,7 +213,49 @@ const UI = {
             </div>
         `;
         
+        // 添加一个"正在生成故事"的提示
+        const storyElement = document.createElement('div');
+        storyElement.id = 'love-story';
+        storyElement.className = 'love-story';
+        storyElement.innerHTML = '<p class="loading-text">正在生成爱情故事，请稍等...</p>';
+        summaryElement.after(storyElement);
+        
+        // 调用API生成故事
+        this.generateLoveStory(gameState);
+        
         document.getElementById('stage-complete-screen').classList.remove('hidden');
+    },
+    
+    // 生成爱情故事
+    generateLoveStory: function(gameState) {
+        fetch('/generate_story', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => response.json())
+        .then(data => {
+            const storyElement = document.getElementById('love-story');
+            if (data.status === 'success') {
+                // 格式化并显示故事
+                const story = data.story;
+                storyElement.innerHTML = `
+                    <h3>爱情故事</h3>
+                    <div class="story-content">
+                        ${story.replace(/\n/g, '<br>')}
+                    </div>
+                `;
+            } else {
+                storyElement.innerHTML = `<p class="error-text">生成故事失败: ${data.message}</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('获取故事出错:', error);
+            const storyElement = document.getElementById('love-story');
+            storyElement.innerHTML = `<p class="error-text">获取故事时出错，请稍后再试</p>`;
+        });
     },
     
     // 显示游戏主界面
@@ -231,6 +273,24 @@ const UI = {
         // 显示故事总结
         const summaryElement = document.getElementById('story-summary');
         summaryElement.innerHTML = this.generateStorySummary(gameState);
+        
+        // 如果有存储的爱情故事，显示最后一个
+        if (gameState.story && Object.keys(gameState.story).length > 0) {
+            const lastStage = Math.max(...Object.keys(gameState.story).map(Number));
+            const lastStory = gameState.story[lastStage];
+            
+            if (lastStory) {
+                const storyElement = document.createElement('div');
+                storyElement.className = 'love-story';
+                storyElement.innerHTML = `
+                    <h3>最后的爱情故事</h3>
+                    <div class="story-content">
+                        ${lastStory.replace(/\n/g, '<br>')}
+                    </div>
+                `;
+                summaryElement.after(storyElement);
+            }
+        }
         
         document.getElementById('game-over-screen').classList.remove('hidden');
     },
@@ -266,6 +326,16 @@ const UI = {
         // 显示故事总结
         const summaryElement = document.getElementById('victory-story-summary');
         summaryElement.innerHTML = this.generateStorySummary(gameState);
+        
+        // 添加一个"正在生成故事"的提示
+        const storyElement = document.createElement('div');
+        storyElement.id = 'victory-love-story';
+        storyElement.className = 'love-story';
+        storyElement.innerHTML = '<p class="loading-text">正在生成最终爱情故事，请稍等...</p>';
+        summaryElement.after(storyElement);
+        
+        // 调用API生成最终故事
+        this.generateLoveStory(gameState);
         
         document.getElementById('victory-screen').classList.remove('hidden');
     },

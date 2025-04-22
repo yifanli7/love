@@ -300,6 +300,45 @@ p {
     margin-bottom: 15px;
 }
 
+/* 爱情故事样式 */
+.love-story {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #FFF5F5;
+    border-radius: 8px;
+    border: 1px solid #FFCDD2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.love-story h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #D32F2F;
+    font-size: 20px;
+    border-bottom: 1px solid #FFCDD2;
+    padding-bottom: 10px;
+}
+
+.story-content {
+    line-height: 1.8;
+    color: #424242;
+    font-size: 15px;
+    text-indent: 2em;
+}
+
+.loading-text {
+    text-align: center;
+    color: #9E9E9E;
+    padding: 20px 0;
+    font-style: italic;
+}
+
+.error-text {
+    text-align: center;
+    color: #D32F2F;
+    padding: 10px 0;
+}
+
 /* 媒体查询 */
 @media (max-width: 600px) {
     body {
