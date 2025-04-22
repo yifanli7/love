@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session
+from flask import Flask, render_template, request, jsonify, session, make_response
 import json
 import random
 import os
@@ -10,6 +10,21 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
+
+# 使用cookie存储游戏状态
+def get_game_state():
+    state_cookie = request.cookies.get('game_state')
+    if state_cookie:
+        try:
+            return json.loads(state_cookie)
+        except:
+            return None
+    return None
+
+# 设置游戏状态到cookie
+def set_game_state(response, game_state):
+    response.set_cookie('game_state', json.dumps(game_state), max_age=60*60*24*7)  # 7天过期
+    return response
 
 # 加载所有事件
 def load_events():
@@ -112,24 +127,24 @@ def initialize_game():
         female_name = 'B'
     
     game_state = init_game(male_name, female_name)
-    session['game_state'] = game_state
     
-    return jsonify({"status": "success", "game_state": game_state})
+    response = make_response(jsonify({"status": "success", "game_state": game_state}))
+    return set_game_state(response, game_state)
 
 @app.route('/start_stage', methods=['POST'])
 def start_stage():
-    game_state = session.get('game_state', None)
+    game_state = get_game_state()
     if not game_state:
         return jsonify({"status": "error", "message": "游戏未初始化"}), 400
     
     game_state["events_in_stage"] = 0
-    session['game_state'] = game_state
     
-    return jsonify({"status": "success", "game_state": game_state})
+    response = make_response(jsonify({"status": "success", "game_state": game_state}))
+    return set_game_state(response, game_state)
 
 @app.route('/get_event', methods=['GET'])
 def get_event():
-    game_state = session.get('game_state', None)
+    game_state = get_game_state()
     if not game_state:
         return jsonify({"status": "error", "message": "游戏未初始化"}), 400
     
@@ -161,7 +176,7 @@ def get_event():
 
 @app.route('/choose_option', methods=['POST'])
 def choose_option():
-    game_state = session.get('game_state', None)
+    game_state = get_game_state()
     if not game_state:
         return jsonify({"status": "error", "message": "游戏未初始化"}), 400
     
@@ -233,18 +248,18 @@ def choose_option():
                 "game_state": game_state
             })
     
-    session['game_state'] = game_state
-    
-    return jsonify({
+    response = make_response(jsonify({
         "status": "success",
         "game_state": game_state,
         "stage_complete": stage_complete
-    })
+    }))
+    return set_game_state(response, game_state)
 
 @app.route('/reset_game', methods=['POST'])
 def reset_game():
-    session.pop('game_state', None)
-    return jsonify({"status": "success"})
+    response = make_response(jsonify({"status": "success"}))
+    response.delete_cookie('game_state')
+    return response
 
 if __name__ == '__main__':
     # 确保静态数据目录存在
