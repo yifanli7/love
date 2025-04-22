@@ -323,7 +323,7 @@ const UI = {
         
         events.forEach(event => {
             const character = event.character === 'male' ? gameState.male.name : gameState.female.name;
-            html += `<li><strong>${event.time}</strong>: ${character} 的事件 "${event.title}" - 选择了 "${event.option_chosen}"</li>`;
+            html += `<li><strong>${event.time}</strong>: ${character} "${event.title}" - 选择了 "${event.option_chosen}"</li>`;
         });
         
         html += '</ul>';
