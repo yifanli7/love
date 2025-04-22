@@ -8,7 +8,7 @@ import glob
 def compile_events():
     """编译所有事件到一个文件"""
     # 获取当前脚本所在目录
-    current_dir = os.getcwd()
+    current_dir = os.path.dirname(os.path.abspath(__file__))
     
     # 确定events文件夹路径
     events_dir = os.path.join(current_dir, "events")
@@ -25,6 +25,8 @@ def compile_events():
         "stage2": {"male": [], "female": []},
         "stage3": {"male": [], "female": []}
     }
+    
+    print(f"正在从 {events_dir} 读取事件文件...")
     
     # 遍历每个阶段目录
     for stage in range(1, 4):

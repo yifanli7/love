@@ -12,12 +12,12 @@
             "effects": {
               "male": {
                 "money": -1,
-                "affection": 2,
+                "affection": 15,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 15,
                 "health": 0
               }
             }
@@ -27,7 +27,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
@@ -47,7 +47,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": -1,
+                "affection": -5,
                 "health": 0
               }
             }
@@ -65,12 +65,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 4,
+                "affection": 15,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 15,
                 "health": 0
               }
             }
@@ -80,12 +80,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -118,12 +118,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 3,
+                "affection": 15,
                 "health": 1
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 15,
                 "health": 1
               }
             }
@@ -133,12 +133,12 @@
             "effects": {
               "male": {
                 "money": 1,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -171,12 +171,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 15,
                 "health": -2
               },
               "female": {
                 "money": 0,
-                "affection": 4,
+                "affection": 15,
                 "health": 1
               }
             }
@@ -186,12 +186,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 3,
+                "affection": 5,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -206,7 +206,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": -1,
+                "affection": -5,
                 "health": 0
               }
             }
@@ -224,12 +224,12 @@
             "effects": {
               "male": {
                 "money": -3,
-                "affection": 4,
+                "affection": 15,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 4,
+                "affection": 15,
                 "health": 0
               }
             }
@@ -239,12 +239,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -277,12 +277,12 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 6,
+                "affection": 16,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 8,
+                "affection": 18,
                 "health": 1
               }
             }
@@ -292,7 +292,7 @@
             "effects": {
               "male": {
                 "money": -1,
-                "affection": 4,
+                "affection": 5,
                 "health": 0
               },
               "female": {
@@ -307,12 +307,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -330,12 +330,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 5,
+                "affection": 15,
                 "health": -2
               },
               "female": {
                 "money": 0,
-                "affection": 5,
+                "affection": 15,
                 "health": 1
               }
             }
@@ -345,7 +345,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 3,
+                "affection": 5,
                 "health": -3
               },
               "female": {
@@ -360,12 +360,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": -2,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -383,12 +383,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 3,
+                "affection": 15,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 4,
+                "affection": 15,
                 "health": -1
               }
             }
@@ -398,12 +398,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -418,7 +418,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": -1,
+                "affection": -5,
                 "health": 0
               }
             }
@@ -436,12 +436,12 @@
             "effects": {
               "male": {
                 "money": 2,
-                "affection": 3,
+                "affection": 15,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 4,
+                "affection": 15,
                 "health": 0
               }
             }
@@ -451,12 +451,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -489,12 +489,12 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 3,
+                "affection": 15,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 15,
                 "health": 0
               }
             }
@@ -504,12 +504,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -544,12 +544,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 3,
+                "affection": 8,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 8,
                 "health": 0
               }
             }
@@ -559,12 +559,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -574,7 +574,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": -1,
+                "affection": -5,
                 "health": 0
               },
               "female": {
@@ -597,12 +597,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 6,
+                "affection": 10,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 8,
                 "health": -1
               }
             }
@@ -612,12 +612,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 3,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -632,7 +632,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 1
               }
             }
@@ -650,12 +650,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 5,
+                "affection": 10,
                 "health": 1
               },
               "female": {
                 "money": 2,
-                "affection": 4,
+                "affection": 10,
                 "health": -1
               }
             }
@@ -665,12 +665,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 3,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 1,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -685,7 +685,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -703,12 +703,12 @@
             "effects": {
               "male": {
                 "money": 2,
-                "affection": 5,
+                "affection": 8,
                 "health": -1
               },
               "female": {
                 "money": 3,
-                "affection": 3,
+                "affection": 10,
                 "health": 1
               }
             }
@@ -718,12 +718,12 @@
             "effects": {
               "male": {
                 "money": 1,
-                "affection": 3,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 1,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -738,7 +738,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": -2
               }
             }
@@ -756,12 +756,12 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 5,
+                "affection": 10,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 10,
                 "health": -1
               }
             }
@@ -771,12 +771,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -786,7 +786,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": -2,
+                "affection": -5,
                 "health": 0
               },
               "female": {
@@ -809,12 +809,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 4,
+                "affection": 9,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 7,
                 "health": 1
               }
             }
@@ -829,7 +829,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 1
               }
             }
@@ -839,12 +839,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": -2
               }
             }
@@ -862,12 +862,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 4,
+                "affection": 15,
                 "health": 2
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 15,
                 "health": 2
               }
             }
@@ -877,12 +877,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 1
               }
             }
@@ -892,7 +892,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
@@ -915,12 +915,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 4,
+                "affection": 10,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 4,
+                "affection": 8,
                 "health": 0
               }
             }
@@ -930,12 +930,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": -1
               }
             }
@@ -945,12 +945,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -968,12 +968,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 4,
+                "affection": 8,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 8,
                 "health": -1
               }
             }
@@ -983,12 +983,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -998,7 +998,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": -1,
+                "affection": -5,
                 "health": 0
               },
               "female": {
@@ -1021,12 +1021,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 5,
+                "affection": 10,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 3,
+                "affection": 8,
                 "health": 0
               }
             }
@@ -1036,12 +1036,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 2,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -1051,7 +1051,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": -1,
+                "affection": -5,
                 "health": 0
               },
               "female": {
@@ -1078,12 +1078,12 @@
             "effects": {
               "male": {
                 "money": -8,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 6,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1131,12 +1131,12 @@
             "effects": {
               "male": {
                 "money": -4,
-                "affection": 8,
+                "affection": 4,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 10,
+                "affection": 4,
                 "health": 5
               }
             }
@@ -1146,12 +1146,12 @@
             "effects": {
               "male": {
                 "money": -3,
-                "affection": 6,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": 3
               }
             }
@@ -1184,12 +1184,12 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 8,
+                "affection": 4,
                 "health": -2
               },
               "female": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": -3
               }
             }
@@ -1199,12 +1199,12 @@
             "effects": {
               "male": {
                 "money": -3,
-                "affection": 6,
+                "affection": 4,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": -1
               }
             }
@@ -1237,12 +1237,12 @@
             "effects": {
               "male": {
                 "money": -8,
-                "affection": 10,
+                "affection": 4,
                 "health": -2
               },
               "female": {
                 "money": 0,
-                "affection": 12,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1252,12 +1252,12 @@
             "effects": {
               "male": {
                 "money": -3,
-                "affection": 7,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": 1
               }
             }
@@ -1267,12 +1267,12 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 6,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1290,12 +1290,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 9,
+                "affection": 4,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 10,
+                "affection": 4,
                 "health": -1
               }
             }
@@ -1305,12 +1305,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1343,12 +1343,12 @@
             "effects": {
               "male": {
                 "money": -10,
-                "affection": 12,
+                "affection": 4,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 15,
+                "affection": 4,
                 "health": -2
               }
             }
@@ -1358,12 +1358,12 @@
             "effects": {
               "male": {
                 "money": -6,
-                "affection": 9,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 10,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1373,12 +1373,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 5,
+                "affection": 4,
                 "health": 1
               },
               "female": {
                 "money": 0,
-                "affection": 5,
+                "affection": 4,
                 "health": 1
               }
             }
@@ -1396,12 +1396,12 @@
             "effects": {
               "male": {
                 "money": 5,
-                "affection": 8,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 9,
+                "affection": 4,
                 "health": -1
               }
             }
@@ -1411,12 +1411,12 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 6,
+                "affection": 4,
                 "health": -2
               },
               "female": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1449,12 +1449,12 @@
             "effects": {
               "male": {
                 "money": 3,
-                "affection": 7,
+                "affection": 4,
                 "health": 2
               },
               "female": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1469,7 +1469,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 6,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1502,12 +1502,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": -2
               },
               "female": {
                 "money": 0,
-                "affection": 10,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1522,7 +1522,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1555,12 +1555,12 @@
             "effects": {
               "male": {
                 "money": -3,
-                "affection": 6,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": 1
               }
             }
@@ -1570,12 +1570,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 5,
+                "affection": 4,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1610,7 +1610,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": 0
               },
               "female": {
@@ -1625,7 +1625,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               },
               "female": {
@@ -1663,12 +1663,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 12,
+                "affection": 4,
                 "health": 2
               },
               "female": {
                 "money": -8,
-                "affection": 7,
+                "affection": 4,
                 "health": -2
               }
             }
@@ -1678,12 +1678,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 9,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": -6,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1693,12 +1693,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": -3,
-                "affection": 6,
+                "affection": 4,
                 "health": -1
               }
             }
@@ -1716,12 +1716,12 @@
             "effects": {
               "male": {
                 "money": 4,
-                "affection": 10,
+                "affection": 4,
                 "health": 2
               },
               "female": {
                 "money": -2,
-                "affection": 7,
+                "affection": 4,
                 "health": -1
               }
             }
@@ -1731,12 +1731,12 @@
             "effects": {
               "male": {
                 "money": 2,
-                "affection": 5,
+                "affection": 4,
                 "health": 1
               },
               "female": {
                 "money": 1,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1769,12 +1769,12 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 7,
+                "affection": 4,
                 "health": -1
               },
               "female": {
                 "money": -2,
-                "affection": 6,
+                "affection": 4,
                 "health": -1
               }
             }
@@ -1784,7 +1784,7 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               },
               "female": {
@@ -1799,7 +1799,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 2,
                 "health": 0
               },
               "female": {
@@ -1822,12 +1822,12 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 9,
+                "affection": 4,
                 "health": 2
               },
               "female": {
                 "money": -5,
-                "affection": 8,
+                "affection": 4,
                 "health": 2
               }
             }
@@ -1837,12 +1837,12 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 6,
+                "affection": 4,
                 "health": 1
               },
               "female": {
                 "money": -2,
-                "affection": 5,
+                "affection": 4,
                 "health": 1
               }
             }
@@ -1875,12 +1875,12 @@
             "effects": {
               "male": {
                 "money": 3,
-                "affection": 10,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 8,
-                "affection": 8,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1890,12 +1890,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": -2,
-                "affection": 5,
+                "affection": 4,
                 "health": -2
               }
             }
@@ -1928,12 +1928,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": 2
               }
             }
@@ -1981,12 +1981,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": 1
               },
               "female": {
                 "money": 0,
-                "affection": 5,
+                "affection": 4,
                 "health": 0
               }
             }
@@ -1996,12 +1996,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 6,
+                "affection": 4,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 6,
+                "affection": 4,
                 "health": -1
               }
             }
@@ -2034,12 +2034,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 9,
+                "affection": 4,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 7,
+                "affection": 4,
                 "health": -2
               }
             }
@@ -2087,12 +2087,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 8,
+                "affection": 4,
                 "health": 5
               },
               "female": {
                 "money": -3,
-                "affection": 5,
+                "affection": 4,
                 "health": -1
               }
             }
@@ -2102,7 +2102,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 5,
+                "affection": 4,
                 "health": 2
               },
               "female": {
@@ -2117,12 +2117,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 1,
+                "affection": 2,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 1,
+                "affection": 2,
                 "health": 0
               }
             }
@@ -2144,12 +2144,12 @@
             "effects": {
               "male": {
                 "money": -15,
-                "affection": 10,
+                "affection": 5,
                 "health": -2
               },
               "female": {
                 "money": 0,
-                "affection": 15,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -2159,12 +2159,12 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 12,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 12,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -2174,12 +2174,12 @@
             "effects": {
               "male": {
                 "money": -3,
-                "affection": 8,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 10,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -2197,12 +2197,12 @@
             "effects": {
               "male": {
                 "money": -18,
-                "affection": 8,
+                "affection": 5,
                 "health": 4
               },
               "female": {
                 "money": 0,
-                "affection": 10,
+                "affection": 5,
                 "health": 3
               }
             }
@@ -2217,7 +2217,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 6,
+                "affection": 5,
                 "health": 2
               }
             }
@@ -2232,7 +2232,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 7,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -2265,12 +2265,12 @@
             "effects": {
               "male": {
                 "money": 4,
-                "affection": 8,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": 0,
-                "affection": 10,
+                "affection": 5,
                 "health": 2
               }
             }
@@ -2280,12 +2280,12 @@
             "effects": {
               "male": {
                 "money": -3,
-                "affection": 10,
+                "affection": 5,
                 "health": 4
               },
               "female": {
                 "money": 0,
-                "affection": 12,
+                "affection": 5,
                 "health": 3
               }
             }
@@ -2356,12 +2356,12 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 12,
+                "affection": 5,
                 "health": 3
               },
               "female": {
                 "money": 0,
-                "affection": 15,
+                "affection": 5,
                 "health": 4
               }
             }
@@ -2371,12 +2371,12 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 8,
+                "affection": 5,
                 "health": 1
               },
               "female": {
                 "money": 0,
-                "affection": 9,
+                "affection": 5,
                 "health": 2
               }
             }
@@ -2409,12 +2409,12 @@
             "effects": {
               "male": {
                 "money": -15,
-                "affection": 15,
+                "affection": 5,
                 "health": -1
               },
               "female": {
                 "money": 0,
-                "affection": 16,
+                "affection": 5,
                 "health": 3
               }
             }
@@ -2424,12 +2424,12 @@
             "effects": {
               "male": {
                 "money": -10,
-                "affection": 12,
+                "affection": 5,
                 "health": 4
               },
               "female": {
                 "money": 0,
-                "affection": 13,
+                "affection": 5,
                 "health": 5
               }
             }
@@ -2439,12 +2439,12 @@
             "effects": {
               "male": {
                 "money": -4,
-                "affection": 8,
+                "affection": 5,
                 "health": 2
               },
               "female": {
                 "money": 0,
-                "affection": 9,
+                "affection": 5,
                 "health": 2
               }
             }
@@ -2477,12 +2477,12 @@
             "effects": {
               "male": {
                 "money": 2,
-                "affection": 6,
+                "affection": 5,
                 "health": 3
               },
               "female": {
                 "money": 0,
-                "affection": 8,
+                "affection": 5,
                 "health": 3
               }
             }
@@ -2492,12 +2492,12 @@
             "effects": {
               "male": {
                 "money": -15,
-                "affection": 7,
+                "affection": 5,
                 "health": 4
               },
               "female": {
                 "money": 0,
-                "affection": 9,
+                "affection": 5,
                 "health": 5
               }
             }
@@ -2515,7 +2515,7 @@
             "effects": {
               "male": {
                 "money": 6,
-                "affection": 6,
+                "affection": 5,
                 "health": 0
               },
               "female": {
@@ -2535,7 +2535,7 @@
               },
               "female": {
                 "money": 4,
-                "affection": 6,
+                "affection": 5,
                 "health": 1
               }
             }
@@ -2568,12 +2568,12 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 10,
+                "affection": 5,
                 "health": -2
               },
               "female": {
                 "money": -5,
-                "affection": 12,
+                "affection": 5,
                 "health": -4
               }
             }
@@ -2583,12 +2583,12 @@
             "effects": {
               "male": {
                 "money": 2,
-                "affection": 7,
+                "affection": 5,
                 "health": 1
               },
               "female": {
                 "money": 2,
-                "affection": 6,
+                "affection": 5,
                 "health": 2
               }
             }
@@ -2603,7 +2603,7 @@
               },
               "female": {
                 "money": -2,
-                "affection": 6,
+                "affection": 5,
                 "health": 1
               }
             }
@@ -2676,12 +2676,12 @@
             "effects": {
               "male": {
                 "money": -15,
-                "affection": 8,
+                "affection": 5,
                 "health": -2
               },
               "female": {
                 "money": -15,
-                "affection": 10,
+                "affection": 5,
                 "health": -3
               }
             }
@@ -2691,12 +2691,12 @@
             "effects": {
               "male": {
                 "money": -8,
-                "affection": 10,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": -8,
-                "affection": 12,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -2706,12 +2706,12 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 7,
+                "affection": 5,
                 "health": 2
               },
               "female": {
                 "money": -5,
-                "affection": 8,
+                "affection": 5,
                 "health": 2
               }
             }
@@ -2729,12 +2729,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 12,
+                "affection": 5,
                 "health": 8
               },
               "female": {
                 "money": -8,
-                "affection": 6,
+                "affection": 5,
                 "health": -3
               }
             }
@@ -2744,7 +2744,7 @@
             "effects": {
               "male": {
                 "money": -5,
-                "affection": 8,
+                "affection": 5,
                 "health": 6
               },
               "female": {
@@ -2782,12 +2782,12 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 7,
+                "affection": 5,
                 "health": 2
               },
               "female": {
                 "money": -2,
-                "affection": 8,
+                "affection": 5,
                 "health": -2
               }
             }
@@ -2802,7 +2802,7 @@
               },
               "female": {
                 "money": 0,
-                "affection": 6,
+                "affection": 5,
                 "health": 0
               }
             }
@@ -2888,7 +2888,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 6,
+                "affection": 5,
                 "health": 0
               },
               "female": {
@@ -2903,12 +2903,12 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 8,
+                "affection": 5,
                 "health": 1
               },
               "female": {
                 "money": 2,
-                "affection": 7,
+                "affection": 5,
                 "health": 3
               }
             }
@@ -2918,7 +2918,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 10,
+                "affection": 5,
                 "health": 0
               },
               "female": {
@@ -2941,12 +2941,12 @@
             "effects": {
               "male": {
                 "money": -7,
-                "affection": 8,
+                "affection": 5,
                 "health": -2
               },
               "female": {
                 "money": -5,
-                "affection": 10,
+                "affection": 5,
                 "health": -4
               }
             }
@@ -2956,12 +2956,12 @@
             "effects": {
               "male": {
                 "money": -12,
-                "affection": 10,
+                "affection": 5,
                 "health": 0
               },
               "female": {
                 "money": -4,
-                "affection": 8,
+                "affection": 5,
                 "health": 2
               }
             }
@@ -2971,12 +2971,12 @@
             "effects": {
               "male": {
                 "money": -3,
-                "affection": 8,
+                "affection": 5,
                 "health": -1
               },
               "female": {
                 "money": -2,
-                "affection": 7,
+                "affection": 5,
                 "health": -2
               }
             }
@@ -3009,12 +3009,12 @@
             "effects": {
               "male": {
                 "money": -2,
-                "affection": 8,
+                "affection": 5,
                 "health": 4
               },
               "female": {
                 "money": -2,
-                "affection": 6,
+                "affection": 5,
                 "health": 6
               }
             }
@@ -3062,7 +3062,7 @@
             "effects": {
               "male": {
                 "money": 10,
-                "affection": 8,
+                "affection": 5,
                 "health": 0
               },
               "female": {
@@ -3130,7 +3130,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": 6,
+                "affection": 5,
                 "health": 0
               },
               "female": {
@@ -3153,7 +3153,7 @@
             "effects": {
               "male": {
                 "money": 0,
-                "affection": -4,
+                "affection": -3,
                 "health": 0
               },
               "female": {
