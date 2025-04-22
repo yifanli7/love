@@ -1,0 +1,29 @@
+{
+  "id": "f2_event7",
+  "title": "支持梦想",
+  "description": "他向你分享了一个重要的梦想或目标，希望得到你的支持。",
+  "special": false,
+  "options": [
+    {
+      "text": "全力支持并提供实际帮助",
+      "effects": {
+        "male": {"money": 4, "affection": 10, "health": 2},
+        "female": {"money": -2, "affection": 7, "health": -1}
+      }
+    },
+    {
+      "text": "表达支持但提出一些现实考虑",
+      "effects": {
+        "male": {"money": 2, "affection": 5, "health": 1},
+        "female": {"money": 1, "affection": 5, "health": 0}
+      }
+    },
+    {
+      "text": "婉转地提出你的担忧",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 2, "affection": 3, "health": 0}
+      }
+    }
+  ]
+} 

@@ -1,0 +1,29 @@
+{
+  "id": "m3_event6",
+  "title": "家庭装修",
+  "description": "你们开始考虑装修新家，需要做出一些关于风格和预算的决定。",
+  "special": true,
+  "options": [
+    {
+      "text": "投入大量资金打造豪华舒适的家",
+      "effects": {
+        "male": {"money": -18, "affection": 8, "health": 4},
+        "female": {"money": 0, "affection": 10, "health": 3}
+      }
+    },
+    {
+      "text": "选择实用性强且经济的装修方案",
+      "effects": {
+        "male": {"money": -7, "affection": 5, "health": 2},
+        "female": {"money": 0, "affection": 6, "health": 2}
+      }
+    },
+    {
+      "text": "亲自参与部分装修工作以节省开支",
+      "effects": {
+        "male": {"money": -4, "affection": 4, "health": -3},
+        "female": {"money": 0, "affection": 7, "health": 0}
+      }
+    }
+  ]
+} 

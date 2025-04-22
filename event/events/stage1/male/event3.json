@@ -1,0 +1,29 @@
+{
+  "id": "m1_event3",
+  "title": "咖啡厅偶遇",
+  "description": "你在校园咖啡厅看到她一个人坐着，似乎在等人。",
+  "special": false,
+  "options": [
+    {
+      "text": "买一杯咖啡送给她",
+      "effects": {
+        "male": {"money": -2, "affection": 3, "health": 0},
+        "female": {"money": 0, "affection": 3, "health": 0}
+      }
+    },
+    {
+      "text": "走过去礼貌地打个招呼",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 0, "affection": 2, "health": 0}
+      }
+    },
+    {
+      "text": "找个角落安静地坐下",
+      "effects": {
+        "male": {"money": -1, "affection": 0, "health": 0},
+        "female": {"money": 0, "affection": 0, "health": 0}
+      }
+    }
+  ]
+} 

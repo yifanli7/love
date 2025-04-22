@@ -1,0 +1,29 @@
+{
+  "id": "f2_event5",
+  "title": "吵架后的和解",
+  "description": "你们因为一些小事发生了争吵，现在需要解决这个问题。",
+  "special": false,
+  "options": [
+    {
+      "text": "主动道歉，承认自己的错误",
+      "effects": {
+        "male": {"money": 0, "affection": 7, "health": 1},
+        "female": {"money": 0, "affection": 5, "health": 0}
+      }
+    },
+    {
+      "text": "找一个中立的场合坐下来谈",
+      "effects": {
+        "male": {"money": 0, "affection": 6, "health": 0},
+        "female": {"money": 0, "affection": 6, "health": -1}
+      }
+    },
+    {
+      "text": "给彼此一些空间，等情绪平复",
+      "effects": {
+        "male": {"money": 0, "affection": 3, "health": 2},
+        "female": {"money": 0, "affection": 3, "health": 2}
+      }
+    }
+  ]
+} 

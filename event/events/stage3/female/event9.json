@@ -1,0 +1,29 @@
+{
+  "id": "f3_event9",
+  "title": "生活方式改变",
+  "description": "你开始关注健康生活方式，想要在家庭中推行一些健康习惯。",
+  "special": false,
+  "options": [
+    {
+      "text": "全面改变饮食和生活习惯",
+      "effects": {
+        "male": {"money": -4, "affection": 3, "health": 7},
+        "female": {"money": -3, "affection": 2, "health": 10}
+      }
+    },
+    {
+      "text": "渐进式引入健康习惯，尊重伴侣意见",
+      "effects": {
+        "male": {"money": -2, "affection": 8, "health": 4},
+        "female": {"money": -2, "affection": 6, "health": 6}
+      }
+    },
+    {
+      "text": "专注于自己的健康，不强求伴侣改变",
+      "effects": {
+        "male": {"money": 0, "affection": 5, "health": 0},
+        "female": {"money": -1, "affection": 3, "health": 8}
+      }
+    }
+  ]
+} 

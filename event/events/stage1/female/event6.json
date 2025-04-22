@@ -1,0 +1,29 @@
+{
+  "id": "f1_event6",
+  "title": "校园音乐会",
+  "description": "学校将举办音乐会，你偶然听说他也打算去。",
+  "special": false,
+  "options": [
+    {
+      "text": "主动询问是否可以一起去",
+      "effects": {
+        "male": {"money": 0, "affection": 6, "health": 0},
+        "female": {"money": 0, "affection": 3, "health": -1}
+      }
+    },
+    {
+      "text": "在音乐会上若遇见再打招呼",
+      "effects": {
+        "male": {"money": 0, "affection": 3, "health": 0},
+        "female": {"money": 0, "affection": 2, "health": 0}
+      }
+    },
+    {
+      "text": "独自去音乐会，专注于音乐",
+      "effects": {
+        "male": {"money": 0, "affection": 0, "health": 0},
+        "female": {"money": 0, "affection": 1, "health": 1}
+      }
+    }
+  ]
+} 

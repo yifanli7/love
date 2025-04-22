@@ -1,0 +1,29 @@
+{
+  "id": "m3_event10",
+  "title": "周年纪念",
+  "description": "你们的婚姻即将迎来一个重要的周年纪念日。",
+  "special": true,
+  "options": [
+    {
+      "text": "精心策划一场豪华的纪念庆典",
+      "effects": {
+        "male": {"money": -15, "affection": 15, "health": -1},
+        "female": {"money": 0, "affection": 16, "health": 3}
+      }
+    },
+    {
+      "text": "安排一次二人世界的私密旅行",
+      "effects": {
+        "male": {"money": -10, "affection": 12, "health": 4},
+        "female": {"money": 0, "affection": 13, "health": 5}
+      }
+    },
+    {
+      "text": "在家中准备一顿特别的晚餐",
+      "effects": {
+        "male": {"money": -4, "affection": 8, "health": 2},
+        "female": {"money": 0, "affection": 9, "health": 2}
+      }
+    }
+  ]
+} 

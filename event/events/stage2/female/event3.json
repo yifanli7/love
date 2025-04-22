@@ -1,0 +1,29 @@
+{
+  "id": "f2_event3",
+  "title": "关心健康",
+  "description": "他最近因为忙碌而有些忽视健康，看起来很疲惫。",
+  "special": false,
+  "options": [
+    {
+      "text": "准备营养餐为他补充能量",
+      "effects": {
+        "male": {"money": 0, "affection": 8, "health": 5},
+        "female": {"money": -3, "affection": 5, "health": -1}
+      }
+    },
+    {
+      "text": "提醒他注意休息，保持健康",
+      "effects": {
+        "male": {"money": 0, "affection": 5, "health": 2},
+        "female": {"money": 0, "affection": 3, "health": 0}
+      }
+    },
+    {
+      "text": "认为他会自己处理好身体问题",
+      "effects": {
+        "male": {"money": 0, "affection": 1, "health": -1},
+        "female": {"money": 0, "affection": 1, "health": 0}
+      }
+    }
+  ]
+} 

@@ -1,0 +1,29 @@
+{
+  "id": "f1_event8",
+  "title": "偶遇朋友",
+  "description": "你和他偶然在校外咖啡厅相遇，你正和几个朋友在一起。",
+  "special": false,
+  "options": [
+    {
+      "text": "邀请他加入你们的聚会",
+      "effects": {
+        "male": {"money": -2, "affection": 5, "health": 0},
+        "female": {"money": 0, "affection": 3, "health": -1}
+      }
+    },
+    {
+      "text": "简单打招呼后继续和朋友聊天",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 0, "affection": 1, "health": 0}
+      }
+    },
+    {
+      "text": "假装没看见，避免尴尬",
+      "effects": {
+        "male": {"money": 0, "affection": -2, "health": 0},
+        "female": {"money": 0, "affection": 0, "health": 0}
+      }
+    }
+  ]
+} 

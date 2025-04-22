@@ -1,0 +1,29 @@
+{
+  "id": "f3_event3",
+  "title": "副业尝试",
+  "description": "你发现一个可以利用自己技能发展副业的机会，可能会带来额外收入。",
+  "special": false,
+  "options": [
+    {
+      "text": "全力投入发展副业",
+      "effects": {
+        "male": {"money": 0, "affection": -4, "health": 0},
+        "female": {"money": 10, "affection": -2, "health": -4}
+      }
+    },
+    {
+      "text": "在不影响正职和关系的前提下适度发展",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 5, "affection": 2, "health": -2}
+      }
+    },
+    {
+      "text": "邀请伴侣一起参与这个项目",
+      "effects": {
+        "male": {"money": 3, "affection": 5, "health": -1},
+        "female": {"money": 6, "affection": 4, "health": -2}
+      }
+    }
+  ]
+} 

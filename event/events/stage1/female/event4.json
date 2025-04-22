@@ -1,0 +1,29 @@
+{
+  "id": "f1_event4",
+  "title": "学习困难",
+  "description": "你在一门课程上遇到了困难，看到他似乎很擅长这门课。",
+  "special": false,
+  "options": [
+    {
+      "text": "主动请教他学习方法",
+      "effects": {
+        "male": {"money": 2, "affection": 5, "health": -1},
+        "female": {"money": 3, "affection": 3, "health": 1}
+      }
+    },
+    {
+      "text": "间接询问他是否能提供一些学习资料",
+      "effects": {
+        "male": {"money": 1, "affection": 3, "health": 0},
+        "female": {"money": 1, "affection": 2, "health": 0}
+      }
+    },
+    {
+      "text": "自己努力解决困难",
+      "effects": {
+        "male": {"money": 0, "affection": 0, "health": 0},
+        "female": {"money": 0, "affection": 1, "health": -2}
+      }
+    }
+  ]
+} 

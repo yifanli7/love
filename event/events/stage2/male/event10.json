@@ -1,0 +1,29 @@
+{
+  "id": "m2_event10",
+  "title": "关系进展",
+  "description": "你们交往已有一段时间，你考虑是否该让关系更进一步。",
+  "special": true,
+  "options": [
+    {
+      "text": "求婚或提出同居，表达认真的承诺",
+      "effects": {
+        "male": {"money": -10, "affection": 12, "health": -1},
+        "female": {"money": 0, "affection": 15, "health": -2}
+      }
+    },
+    {
+      "text": "送一件象征关系的礼物，如对戒",
+      "effects": {
+        "male": {"money": -6, "affection": 9, "health": 0},
+        "female": {"money": 0, "affection": 10, "health": 0}
+      }
+    },
+    {
+      "text": "表达爱意，但暂不改变现状",
+      "effects": {
+        "male": {"money": 0, "affection": 5, "health": 1},
+        "female": {"money": 0, "affection": 5, "health": 1}
+      }
+    }
+  ]
+} 

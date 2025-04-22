@@ -1,0 +1,29 @@
+{
+  "id": "m1_event8",
+  "title": "校园活动",
+  "description": "学校举办文化节，你在人群中发现了她。",
+  "special": false,
+  "options": [
+    {
+      "text": "主动上前邀请她一起参观活动",
+      "effects": {
+        "male": {"money": -3, "affection": 4, "health": -1},
+        "female": {"money": 0, "affection": 4, "health": 0}
+      }
+    },
+    {
+      "text": "在活动中偶遇时与她打招呼",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 0, "affection": 2, "health": 0}
+      }
+    },
+    {
+      "text": "专注于自己的体验，不去打扰她",
+      "effects": {
+        "male": {"money": -1, "affection": 0, "health": 1},
+        "female": {"money": 0, "affection": 0, "health": 0}
+      }
+    }
+  ]
+} 

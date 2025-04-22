@@ -1,0 +1,29 @@
+{
+  "id": "m3_event5",
+  "title": "财务规划",
+  "description": "随着关系的深入，你们需要对未来的财务进行规划。",
+  "special": false,
+  "options": [
+    {
+      "text": "提议合并财务，共同管理收支",
+      "effects": {
+        "male": {"money": 6, "affection": 6, "health": 0},
+        "female": {"money": 6, "affection": 5, "health": 0}
+      }
+    },
+    {
+      "text": "建立共同账户但保留部分个人财务",
+      "effects": {
+        "male": {"money": 4, "affection": 4, "health": 1},
+        "female": {"money": 4, "affection": 6, "health": 1}
+      }
+    },
+    {
+      "text": "保持完全独立的财务管理",
+      "effects": {
+        "male": {"money": 2, "affection": -1, "health": 2},
+        "female": {"money": 2, "affection": -2, "health": 2}
+      }
+    }
+  ]
+} 

@@ -1,0 +1,29 @@
+{
+  "id": "m3_event8",
+  "title": "关系危机",
+  "description": "你们的关系出现了一些问题，彼此之间的沟通减少，亲密感降低。",
+  "special": true,
+  "options": [
+    {
+      "text": "主动寻求专业关系咨询",
+      "effects": {
+        "male": {"money": -5, "affection": 12, "health": 3},
+        "female": {"money": 0, "affection": 15, "health": 4}
+      }
+    },
+    {
+      "text": "安排一次深入的沟通，解决问题",
+      "effects": {
+        "male": {"money": -2, "affection": 8, "health": 1},
+        "female": {"money": 0, "affection": 9, "health": 2}
+      }
+    },
+    {
+      "text": "送礼物表达爱意，但避免深入讨论",
+      "effects": {
+        "male": {"money": -6, "affection": 4, "health": -1},
+        "female": {"money": 0, "affection": 5, "health": -1}
+      }
+    }
+  ]
+} 

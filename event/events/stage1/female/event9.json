@@ -1,0 +1,29 @@
+{
+  "id": "f1_event9",
+  "title": "健身遇见",
+  "description": "你在学校健身房锻炼时碰到了他。",
+  "special": false,
+  "options": [
+    {
+      "text": "邀请他一起训练，互相监督",
+      "effects": {
+        "male": {"money": 0, "affection": 4, "health": 2},
+        "female": {"money": 0, "affection": 3, "health": 2}
+      }
+    },
+    {
+      "text": "简单交流健身心得",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 0, "affection": 2, "health": 1}
+      }
+    },
+    {
+      "text": "微笑点头，继续自己的锻炼",
+      "effects": {
+        "male": {"money": 0, "affection": 1, "health": 0},
+        "female": {"money": 0, "affection": 0, "health": 1}
+      }
+    }
+  ]
+} 

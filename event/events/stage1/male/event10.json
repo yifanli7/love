@@ -1,0 +1,29 @@
+{
+  "id": "m1_event10",
+  "title": "生日惊喜",
+  "description": "你偶然得知今天是她的生日。",
+  "special": true,
+  "options": [
+    {
+      "text": "准备一份精心的礼物送给她",
+      "effects": {
+        "male": {"money": -5, "affection": 6, "health": -1},
+        "female": {"money": 0, "affection": 8, "health": 1}
+      }
+    },
+    {
+      "text": "送一张手写的生日贺卡",
+      "effects": {
+        "male": {"money": -1, "affection": 4, "health": 0},
+        "female": {"money": 0, "affection": 5, "health": 0}
+      }
+    },
+    {
+      "text": "发一条简单的生日祝福信息",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 0, "affection": 2, "health": 0}
+      }
+    }
+  ]
+} 

@@ -1,0 +1,29 @@
+{
+  "id": "m3_event2",
+  "title": "家庭规划",
+  "description": "你们进入了更稳定的关系阶段，开始考虑是否要组建家庭。",
+  "special": false,
+  "options": [
+    {
+      "text": "表达想要孩子的愿望，积极准备",
+      "effects": {
+        "male": {"money": -5, "affection": 10, "health": -2},
+        "female": {"money": -5, "affection": 12, "health": -4}
+      }
+    },
+    {
+      "text": "提议先享受二人世界一段时间",
+      "effects": {
+        "male": {"money": 2, "affection": 7, "health": 1},
+        "female": {"money": 2, "affection": 6, "health": 2}
+      }
+    },
+    {
+      "text": "表达对养宠物代替孩子的想法",
+      "effects": {
+        "male": {"money": -2, "affection": 5, "health": 0},
+        "female": {"money": -2, "affection": 6, "health": 1}
+      }
+    }
+  ]
+} 

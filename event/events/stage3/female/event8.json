@@ -1,0 +1,29 @@
+{
+  "id": "f3_event8",
+  "title": "个人成长",
+  "description": "你有机会参加一个自我提升的培训课程，但需要一段时间的投入。",
+  "special": false,
+  "options": [
+    {
+      "text": "全力投入自我提升，寻求家人支持",
+      "effects": {
+        "male": {"money": 0, "affection": 6, "health": 0},
+        "female": {"money": 5, "affection": 4, "health": 6}
+      }
+    },
+    {
+      "text": "在不影响家庭的前提下适度学习",
+      "effects": {
+        "male": {"money": 0, "affection": 8, "health": 1},
+        "female": {"money": 2, "affection": 7, "health": 3}
+      }
+    },
+    {
+      "text": "放弃这次机会，优先考虑家庭需求",
+      "effects": {
+        "male": {"money": 0, "affection": 10, "health": 0},
+        "female": {"money": 0, "affection": 3, "health": -2}
+      }
+    }
+  ]
+} 

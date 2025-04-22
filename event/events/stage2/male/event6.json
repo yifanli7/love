@@ -1,0 +1,29 @@
+{
+  "id": "m2_event6",
+  "title": "生病照顾",
+  "description": "她生病了，需要一些照顾和关心。",
+  "special": false,
+  "options": [
+    {
+      "text": "精心照顾她，准备食物和药物",
+      "effects": {
+        "male": {"money": -4, "affection": 8, "health": -1},
+        "female": {"money": 0, "affection": 10, "health": 5}
+      }
+    },
+    {
+      "text": "买些水果和药去看望她",
+      "effects": {
+        "male": {"money": -3, "affection": 6, "health": 0},
+        "female": {"money": 0, "affection": 7, "health": 3}
+      }
+    },
+    {
+      "text": "发信息问候，建议她多休息",
+      "effects": {
+        "male": {"money": 0, "affection": 3, "health": 0},
+        "female": {"money": 0, "affection": 3, "health": 1}
+      }
+    }
+  ]
+} 

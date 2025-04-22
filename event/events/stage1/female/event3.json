@@ -1,0 +1,29 @@
+{
+  "id": "f1_event3",
+  "title": "社交媒体",
+  "description": "你发现他在社交媒体上关注了你，并点赞了你的几张照片。",
+  "special": false,
+  "options": [
+    {
+      "text": "回关他并留言感谢",
+      "effects": {
+        "male": {"money": 0, "affection": 5, "health": 0},
+        "female": {"money": 0, "affection": 3, "health": 0}
+      }
+    },
+    {
+      "text": "只是回关但不主动互动",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 0, "affection": 1, "health": 0}
+      }
+    },
+    {
+      "text": "暂时不做任何回应",
+      "effects": {
+        "male": {"money": 0, "affection": -1, "health": 0},
+        "female": {"money": 0, "affection": 0, "health": 0}
+      }
+    }
+  ]
+} 

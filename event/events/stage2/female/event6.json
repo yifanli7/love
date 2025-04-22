@@ -1,0 +1,29 @@
+{
+  "id": "f2_event6",
+  "title": "生日礼物",
+  "description": "他的生日快到了，你想为他准备一份特别的礼物。",
+  "special": true,
+  "options": [
+    {
+      "text": "精心策划一场惊喜派对",
+      "effects": {
+        "male": {"money": 0, "affection": 12, "health": 2},
+        "female": {"money": -8, "affection": 7, "health": -2}
+      }
+    },
+    {
+      "text": "买一个他一直想要的物品",
+      "effects": {
+        "male": {"money": 0, "affection": 9, "health": 0},
+        "female": {"money": -6, "affection": 5, "health": 0}
+      }
+    },
+    {
+      "text": "亲手制作一个有纪念意义的礼物",
+      "effects": {
+        "male": {"money": 0, "affection": 8, "health": 0},
+        "female": {"money": -3, "affection": 6, "health": -1}
+      }
+    }
+  ]
+} 

@@ -1,0 +1,29 @@
+{
+  "id": "f2_event2",
+  "title": "家人介绍",
+  "description": "你的家人想见见他，邀请他参加家庭聚餐。",
+  "special": false,
+  "options": [
+    {
+      "text": "正式介绍他为你的男朋友",
+      "effects": {
+        "male": {"money": 0, "affection": 9, "health": -1},
+        "female": {"money": 0, "affection": 7, "health": -2}
+      }
+    },
+    {
+      "text": "以朋友的身份介绍，减轻压力",
+      "effects": {
+        "male": {"money": 0, "affection": 4, "health": 0},
+        "female": {"money": 0, "affection": 4, "health": -1}
+      }
+    },
+    {
+      "text": "婉拒这次邀请，认为时机尚早",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": 0},
+        "female": {"money": 0, "affection": 2, "health": 0}
+      }
+    }
+  ]
+} 

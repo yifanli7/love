@@ -1,0 +1,29 @@
+{
+  "id": "m2_event7",
+  "title": "家人见面",
+  "description": "你的父母想见见你的女朋友，你需要安排这次见面。",
+  "special": true,
+  "options": [
+    {
+      "text": "安排一次正式的家庭晚餐",
+      "effects": {
+        "male": {"money": -5, "affection": 8, "health": -2},
+        "female": {"money": 0, "affection": 7, "health": -3}
+      }
+    },
+    {
+      "text": "选择一个轻松的场合如咖啡厅见面",
+      "effects": {
+        "male": {"money": -3, "affection": 6, "health": -1},
+        "female": {"money": 0, "affection": 8, "health": -1}
+      }
+    },
+    {
+      "text": "推迟这次见面，等关系更稳定",
+      "effects": {
+        "male": {"money": 0, "affection": 3, "health": 0},
+        "female": {"money": 0, "affection": 4, "health": 0}
+      }
+    }
+  ]
+} 

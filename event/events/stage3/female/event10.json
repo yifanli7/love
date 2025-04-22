@@ -1,0 +1,29 @@
+{
+  "id": "f3_event10",
+  "title": "家庭责任",
+  "description": "你需要照顾生病的父母，这会影响你和伴侣的生活。",
+  "special": true,
+  "options": [
+    {
+      "text": "邀请父母搬来同住，全力照顾",
+      "effects": {
+        "male": {"money": -7, "affection": 8, "health": -2},
+        "female": {"money": -5, "affection": 10, "health": -4}
+      }
+    },
+    {
+      "text": "安排专业护理，定期探望",
+      "effects": {
+        "male": {"money": -12, "affection": 10, "health": 0},
+        "female": {"money": -4, "affection": 8, "health": 2}
+      }
+    },
+    {
+      "text": "与兄弟姐妹分担照顾责任",
+      "effects": {
+        "male": {"money": -3, "affection": 8, "health": -1},
+        "female": {"money": -2, "affection": 7, "health": -2}
+      }
+    }
+  ]
+} 

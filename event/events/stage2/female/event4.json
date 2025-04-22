@@ -1,0 +1,29 @@
+{
+  "id": "f2_event4",
+  "title": "朋友聚会",
+  "description": "你的朋友们想见见你的男友，你考虑是否要带他参加朋友聚会。",
+  "special": false,
+  "options": [
+    {
+      "text": "带他一起参加，向朋友介绍",
+      "effects": {
+        "male": {"money": -2, "affection": 7, "health": -1},
+        "female": {"money": -2, "affection": 6, "health": -1}
+      }
+    },
+    {
+      "text": "先与朋友沟通让他们有心理准备",
+      "effects": {
+        "male": {"money": -2, "affection": 5, "health": 0},
+        "female": {"money": -2, "affection": 4, "health": 0}
+      }
+    },
+    {
+      "text": "这次不带他，与朋友单独相处",
+      "effects": {
+        "male": {"money": 0, "affection": 1, "health": 0},
+        "female": {"money": -2, "affection": 2, "health": 1}
+      }
+    }
+  ]
+} 

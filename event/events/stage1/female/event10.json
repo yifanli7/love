@@ -1,0 +1,30 @@
+{
+  "id": "f1_event10",
+  "title": "帮助时刻",
+  "description": "你正在搬运一些重物到宿舍/家里，看起来有些吃力，这时他经过了。",
+  "special": true,
+  "options": [
+    {
+      "text": "礼貌地请求他帮忙",
+      "effects": {
+        "male": {"money": 0, "affection": 4, "health": -1},
+        "female": {"money": 0, "affection": 3, "health": 1}
+      }
+    },
+    {
+      "text": "接受他主动提出的帮助",
+      "effects": {
+        "male": {"money": 0, "affection": 5, "health": -1},
+        "female": {"money": 0, "affection": 2, "health": 1}
+      }
+    },
+    {
+      "text": "坚持自己完成，表现独立",
+      "effects": {
+        "male": {"money": 0, "affection": 1, "health": 0},
+        "female": {"money": 0, "affection": 1, "health": -2}
+      }
+    }
+  ]
+}
+ 

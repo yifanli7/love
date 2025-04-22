@@ -1,0 +1,29 @@
+{
+  "id": "f1_event7",
+  "title": "借书请求",
+  "description": "他向你借一本你正在看的教科书，说他的那本丢了。",
+  "special": false,
+  "options": [
+    {
+      "text": "借给他并主动提出一起学习",
+      "effects": {
+        "male": {"money": 0, "affection": 5, "health": 1},
+        "female": {"money": 2, "affection": 4, "health": -1}
+      }
+    },
+    {
+      "text": "借给他，但约定归还时间",
+      "effects": {
+        "male": {"money": 0, "affection": 3, "health": 0},
+        "female": {"money": 1, "affection": 2, "health": 0}
+      }
+    },
+    {
+      "text": "建议他去图书馆借阅",
+      "effects": {
+        "male": {"money": 0, "affection": 0, "health": 0},
+        "female": {"money": 0, "affection": 1, "health": 0}
+      }
+    }
+  ]
+} 

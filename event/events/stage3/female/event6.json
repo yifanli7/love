@@ -1,0 +1,29 @@
+{
+  "id": "f3_event6",
+  "title": "健康危机",
+  "description": "你的伴侣最近出现了一些健康问题，需要更多关注和照顾。",
+  "special": false,
+  "options": [
+    {
+      "text": "减少工作时间，全心照顾他的健康",
+      "effects": {
+        "male": {"money": 0, "affection": 12, "health": 8},
+        "female": {"money": -8, "affection": 6, "health": -3}
+      }
+    },
+    {
+      "text": "寻求专业医疗服务和家庭帮助",
+      "effects": {
+        "male": {"money": -5, "affection": 8, "health": 6},
+        "female": {"money": -5, "affection": 5, "health": 0}
+      }
+    },
+    {
+      "text": "鼓励他保持积极心态，自己适度调整",
+      "effects": {
+        "male": {"money": 0, "affection": 5, "health": 3},
+        "female": {"money": -2, "affection": 4, "health": 1}
+      }
+    }
+  ]
+} 

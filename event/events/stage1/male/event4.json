@@ -1,0 +1,29 @@
+{
+  "id": "m1_event4",
+  "title": "小组讨论",
+  "description": "你们被分到同一个课程小组，需要一起完成一个项目。",
+  "special": false,
+  "options": [
+    {
+      "text": "主动承担更多的工作量",
+      "effects": {
+        "male": {"money": 0, "affection": 2, "health": -2},
+        "female": {"money": 0, "affection": 4, "health": 1}
+      }
+    },
+    {
+      "text": "公平分配工作，定期沟通进度",
+      "effects": {
+        "male": {"money": 0, "affection": 3, "health": -1},
+        "female": {"money": 0, "affection": 3, "health": 0}
+      }
+    },
+    {
+      "text": "尽量减少互动，只完成自己的部分",
+      "effects": {
+        "male": {"money": 0, "affection": 0, "health": 0},
+        "female": {"money": 0, "affection": -1, "health": 0}
+      }
+    }
+  ]
+} 

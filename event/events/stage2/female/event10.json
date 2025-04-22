@@ -1,0 +1,29 @@
+{
+  "id": "f2_event10",
+  "title": "重要抉择",
+  "description": "你收到了一个可能影响你们关系的职业发展机会。",
+  "special": true,
+  "options": [
+    {
+      "text": "与他深入沟通，寻求共同解决方案",
+      "effects": {
+        "male": {"money": 3, "affection": 10, "health": 0},
+        "female": {"money": 8, "affection": 8, "health": 0}
+      }
+    },
+    {
+      "text": "优先考虑关系，调整职业规划",
+      "effects": {
+        "male": {"money": 0, "affection": 8, "health": 0},
+        "female": {"money": -2, "affection": 5, "health": -2}
+      }
+    },
+    {
+      "text": "把握机会，相信关系能经受考验",
+      "effects": {
+        "male": {"money": 2, "affection": 4, "health": -1},
+        "female": {"money": 12, "affection": 4, "health": 1}
+      }
+    }
+  ]
+} 

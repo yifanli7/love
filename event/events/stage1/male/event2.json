@@ -1,0 +1,29 @@
+{
+  "id": "m1_event2",
+  "title": "校园邂逅",
+  "description": "你在校园里偶遇了她，她似乎正在为一门课程的作业发愁。",
+  "special": false,
+  "options": [
+    {
+      "text": "主动提出帮助她完成作业",
+      "effects": {
+        "male": {"money": 2, "affection": 3, "health": -1},
+        "female": {"money": 0, "affection": 4, "health": 0}
+      }
+    },
+    {
+      "text": "建议她去找教授或助教寻求帮助",
+      "effects": {
+        "male": {"money": 0, "affection": 1, "health": 0},
+        "female": {"money": 0, "affection": 1, "health": 0}
+      }
+    },
+    {
+      "text": "告诉她自己也不懂这门课",
+      "effects": {
+        "male": {"money": 0, "affection": 0, "health": 0},
+        "female": {"money": 0, "affection": 0, "health": 0}
+      }
+    }
+  ]
+} 

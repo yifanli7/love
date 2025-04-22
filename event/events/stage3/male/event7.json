@@ -1,0 +1,29 @@
+{
+  "id": "m3_event7",
+  "title": "工作与家庭",
+  "description": "你面临一个重要的工作机会，但可能需要更多时间投入，影响家庭生活。",
+  "special": false,
+  "options": [
+    {
+      "text": "接受机会，并承诺平衡工作与家庭",
+      "effects": {
+        "male": {"money": 8, "affection": 3, "health": -3},
+        "female": {"money": 0, "affection": 5, "health": 0}
+      }
+    },
+    {
+      "text": "与伴侣商量，根据家庭需求做决定",
+      "effects": {
+        "male": {"money": 4, "affection": 8, "health": 0},
+        "female": {"money": 0, "affection": 10, "health": 2}
+      }
+    },
+    {
+      "text": "婉拒机会，将家庭放在首位",
+      "effects": {
+        "male": {"money": -3, "affection": 10, "health": 4},
+        "female": {"money": 0, "affection": 12, "health": 3}
+      }
+    }
+  ]
+} 
