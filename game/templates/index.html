@@ -2,9 +2,12 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>爱情冒险 - 文字roguelike游戏</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -16,7 +19,7 @@
                 <p>在这个文字roguelike游戏中，你将跟随一对男女主角的爱情故事，从陌生人到朋友，再到恋人，最后成为夫妻。</p>
                 <p>每个阶段都有10个随机事件，你需要做出选择，这些选择将影响角色的金钱、好感度和健康度。</p>
                 <p>注意保持良好的属性状态，以通过每个阶段的考验。任何属性降至0以下，游戏就会结束。</p>
-                <button id="start-btn" class="btn">我已知晓</button>
+                <button id="start-btn" class="btn">开始游戏</button>
             </div>
         </div>
 
@@ -25,11 +28,11 @@
             <div class="container">
                 <h1>角色命名</h1>
                 <div class="input-group">
-                    <label for="male-name">男主角名字：</label>
+                    <label for="male-name">男主角名字</label>
                     <input type="text" id="male-name" placeholder="默认为A">
                 </div>
                 <div class="input-group">
-                    <label for="female-name">女主角名字：</label>
+                    <label for="female-name">女主角名字</label>
                     <input type="text" id="female-name" placeholder="默认为B">
                 </div>
                 <button id="name-confirm-btn" class="btn">开始游戏</button>

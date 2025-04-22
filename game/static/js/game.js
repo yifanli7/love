@@ -5,27 +5,30 @@ const GameManager = {
     
     // 初始化游戏
     init: function(maleName, femaleName) {
-        fetch('/init', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                male_name: maleName,
-                female_name: femaleName
+        // 确保游戏从头开始
+        this.resetGame(true).then(() => {
+            fetch('/init', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    male_name: maleName,
+                    female_name: femaleName
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                this.gameState = data.game_state;
-                UI.updateStatsDisplay(this.gameState);
-                UI.showStageIntro(this.gameState.stage);
-            } else {
-                console.error('初始化游戏失败:', data.message);
-            }
-        })
-        .catch(error => console.error('初始化游戏出错:', error));
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    this.gameState = data.game_state;
+                    UI.updateStatsDisplay(this.gameState);
+                    UI.showStageIntro(this.gameState.stage);
+                } else {
+                    console.error('初始化游戏失败:', data.message);
+                }
+            })
+            .catch(error => console.error('初始化游戏出错:', error));
+        });
     },
     
     // 开始阶段
@@ -106,8 +109,8 @@ const GameManager = {
     },
     
     // 重置游戏
-    resetGame: function() {
-        fetch('/reset_game', {
+    resetGame: function(silent = false) {
+        return fetch('/reset_game', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -119,12 +122,19 @@ const GameManager = {
             if (data.status === 'success') {
                 this.gameState = null;
                 this.currentEvent = null;
-                UI.showIntroScreen();
+                if (!silent) {
+                    UI.showIntroScreen();
+                }
+                return true;
             } else {
                 console.error('重置游戏失败:', data.message);
+                return false;
             }
         })
-        .catch(error => console.error('重置游戏出错:', error));
+        .catch(error => {
+            console.error('重置游戏出错:', error);
+            return false;
+        });
     }
 };
 
@@ -300,18 +310,37 @@ const UI = {
         document.getElementById('event-title').textContent = event.title;
         document.getElementById('event-description').textContent = event.description;
         
-        // 显示选项
+        // 清空选项容器
         const optionsContainer = document.querySelector('.options');
         optionsContainer.innerHTML = '';
         
+        // 确保总是显示三个选项，即使事件只有一两个选项也保持UI布局一致
+        const optionsCount = event.options.length;
+        const maxOptions = 3;
+        
+        // 创建选项按钮
         event.options.forEach((option, index) => {
-            const button = document.createElement('button');
-            button.className = 'option-btn';
-            button.textContent = option.text;
-            button.dataset.index = index;
-            button.addEventListener('click', () => GameManager.chooseOption(index));
-            optionsContainer.appendChild(button);
+            this.createOptionButton(optionsContainer, option, index);
         });
+        
+        // 如果选项不足三个，填充空白选项保持布局一致
+        for (let i = optionsCount; i < maxOptions; i++) {
+            const dummyOption = document.createElement('div');
+            dummyOption.className = 'option-btn dummy';
+            dummyOption.style.visibility = 'hidden';
+            dummyOption.style.height = '60px';
+            optionsContainer.appendChild(dummyOption);
+        }
+    },
+    
+    // 创建选项按钮
+    createOptionButton: function(container, option, index) {
+        const button = document.createElement('button');
+        button.className = 'option-btn';
+        button.textContent = option.text;
+        button.dataset.index = index;
+        button.addEventListener('click', () => GameManager.chooseOption(index));
+        container.appendChild(button);
     },
     
     // 生成故事总结
