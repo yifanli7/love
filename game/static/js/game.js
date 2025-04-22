@@ -233,16 +233,33 @@ const UI = {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({})
+            body: JSON.stringify({
+                current_stage_only: true  // 告诉服务器只生成当前阶段的故事
+            })
         })
         .then(response => response.json())
         .then(data => {
-            const storyElement = document.getElementById('love-story');
+            const storyElement = document.getElementById('love-story') || document.getElementById('victory-love-story');
             if (data.status === 'success') {
+                // 获取当前阶段
+                const currentStage = gameState.stage;
+                let stageTitle = "爱情故事";
+                
+                // 根据阶段设置标题
+                if (currentStage === 1) {
+                    stageTitle = "友情故事";
+                } else if (currentStage === 2) {
+                    stageTitle = "恋爱故事";
+                } else if (currentStage === 3) {
+                    stageTitle = "婚姻故事";
+                } else if (currentStage === 4) {
+                    stageTitle = "完整爱情故事";
+                }
+                
                 // 格式化并显示故事
                 const story = data.story;
                 storyElement.innerHTML = `
-                    <h3>爱情故事</h3>
+                    <h3>${stageTitle}</h3>
                     <div class="story-content">
                         ${story.replace(/\n/g, '<br>')}
                     </div>
@@ -253,7 +270,7 @@ const UI = {
         })
         .catch(error => {
             console.error('获取故事出错:', error);
-            const storyElement = document.getElementById('love-story');
+            const storyElement = document.getElementById('love-story') || document.getElementById('victory-love-story');
             storyElement.innerHTML = `<p class="error-text">获取故事时出错，请稍后再试</p>`;
         });
     },
@@ -398,7 +415,7 @@ const UI = {
             const dummyOption = document.createElement('div');
             dummyOption.className = 'option-btn dummy';
             dummyOption.style.visibility = 'hidden';
-            dummyOption.style.height = '60px';
+            dummyOption.style.height = '50px';
             optionsContainer.appendChild(dummyOption);
         }
     },
@@ -420,7 +437,10 @@ const UI = {
         
         let html = '<h3>故事总结</h3><ul>';
         
-        events.forEach(event => {
+        // 最多显示最近的10个事件，使界面更简洁
+        const recentEvents = events.slice(-10);
+        
+        recentEvents.forEach(event => {
             const character = event.character === 'male' ? gameState.male.name : gameState.female.name;
             html += `<li><strong>${event.time}</strong>: ${character} "${event.title}" - 选择了 "${event.option_chosen}"</li>`;
         });

@@ -11,6 +11,19 @@ api_key = os.environ.get("DEEPSEEK_API_KEY", "sk-c15d06213b87484dbc9003d144f74e0
 # 在Vercel环境中使用简化的超时设置
 VERCEL_TIMEOUT = 5.0  # Vercel函数有10秒的执行限制，我们设置为5秒留出余量
 
+# 全局客户端
+global_client = None
+
+# 获取或创建OpenAI客户端
+def get_client():
+    global global_client
+    if global_client is None:
+        global_client = OpenAI(
+            api_key=api_key,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        )
+    return global_client
+
 # 判断是否在Vercel环境中运行
 def is_vercel_env() -> bool:
     """检查是否在Vercel环境中运行"""
@@ -40,12 +53,11 @@ def generate_fallback_story(male_name: str, female_name: str, relationship: str,
         return f"{male_name}和{female_name}的故事正在继续发展，充满了无限可能。他们一起经历了许多事情，这些经历让他们更加了解彼此，也让他们的关系更进一步。无论未来如何，这段关系都将是他们人生中重要的一部分。"
 
 # 安全的API调用函数
-def api_call_with_timeout(client: OpenAI, messages: list, model: str = "deepseek-chat", timeout: float = VERCEL_TIMEOUT) -> Optional[str]:
+def api_call_with_timeout(messages: list, model: str = "deepseek-chat", timeout: float = VERCEL_TIMEOUT) -> Optional[str]:
     """
     安全地调用API，包含超时控制和错误处理
     
     Args:
-        client: OpenAI客户端
         messages: 消息列表
         model: 模型名称
         timeout: 超时时间(秒)
@@ -55,6 +67,7 @@ def api_call_with_timeout(client: OpenAI, messages: list, model: str = "deepseek
     """
     def call_api():
         try:
+            client = get_client()
             response = client.chat.completions.create(
                 model=model,
                 messages=messages,
@@ -124,8 +137,12 @@ def generate_love_story(game_state: Dict[str, Any]) -> str:
             print(f"故事生成完成，总耗时: {end_time - start_time:.2f}秒")
             return story
         
-        # 提取事件历史(保留所有事件，以便生成更连贯的故事)
-        events = game_state.get("events_happened", [])
+        # 提取当前阶段的事件历史，确保只关注当前阶段的事件
+        events = []
+        for event in game_state.get("events_happened", []):
+            # 筛选当前阶段的事件
+            if len(events) < 10:  # 只考虑最近的10个事件，即当前阶段的事件
+                events.append(event)
         
         # 构建事件描述，包含事件标题、选择和效果
         events_text = ""
@@ -180,14 +197,8 @@ def generate_love_story(game_state: Dict[str, Any]) -> str:
         messages = [system_message, user_message]
         
         try:
-            # 创建OpenAI客户端，设置合理的超时时间
-            client = OpenAI(
-                api_key=api_key,
-                base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
-            )
-            
             # 调用API生成故事，使用安全的调用方法
-            story = api_call_with_timeout(client, messages)
+            story = api_call_with_timeout(messages)
             
             # 如果API调用失败，使用回退方案
             if not story:

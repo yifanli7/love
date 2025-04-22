@@ -28,9 +28,11 @@ body {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    min-height: 500px;
+    min-height: 560px;
+    max-height: 90vh;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .screen {
@@ -127,14 +129,22 @@ p {
 
 .status-container {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
+}
+
+.characters-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
 }
 
 .character-status {
     flex: 1;
-    min-width: 110px;
     padding: 10px;
     margin-bottom: 10px;
     background-color: white;
@@ -146,41 +156,40 @@ p {
     margin-bottom: 10px;
     color: #2c3e50;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .stats {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .stat {
-    font-size: 15px;
+    font-size: 14px;
     color: #495057;
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
-    border-bottom: 1px solid #f1f1f1;
+    padding: 3px 0;
 }
 
 .relationship-status {
     width: 100%;
     text-align: center;
-    padding: 15px 0;
-    margin: 10px 0;
+    padding: 10px 0;
+    margin: 10px 0 5px 0;
 }
 
 #relationship-display {
     font-weight: bold;
     font-size: 18px;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 20px;
     display: inline-block;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    min-width: 120px;
+    min-width: 80px;
     text-align: center;
 }
 
@@ -211,7 +220,7 @@ p {
 
 /* 事件区域样式 */
 .event-area {
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #eee;
     border-radius: 12px;
     margin-bottom: 20px;
@@ -220,33 +229,35 @@ p {
     flex-direction: column;
     background-color: white;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    max-height: 420px;
+    overflow-y: auto;
 }
 
 #turn-indicator {
     text-align: center;
     margin-bottom: 15px;
-    padding: 8px;
+    padding: 6px;
     background-color: #f8f9fa;
     border-radius: 6px;
     font-weight: 500;
     color: #495057;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #event-title {
     margin-bottom: 15px;
     color: #2c3e50;
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
     font-weight: 700;
 }
 
 #event-description {
-    margin-bottom: 25px;
-    line-height: 1.7;
+    margin-bottom: 20px;
+    line-height: 1.6;
     flex-grow: 1;
     min-height: 80px;
-    font-size: 17px;
+    font-size: 16px;
     padding: 0 5px;
     color: #495057;
 }
@@ -254,20 +265,20 @@ p {
 .options {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .option-btn {
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
-    padding: 16px;
+    padding: 12px;
     text-align: left;
     cursor: pointer;
     border-radius: 10px;
     transition: all 0.2s;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
-    min-height: 60px;
+    min-height: 56px;
     display: flex;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -309,6 +320,8 @@ p {
     background-color: #f8f9fa;
     border-radius: 10px;
     border: 1px solid #e9ecef;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 #stage-specific-info {
@@ -322,14 +335,14 @@ p {
 
 .summary-stats {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 15px;
     margin-top: 15px;
 }
 
 .summary-stats > div {
-    flex: 1 1 45%;
-    min-width: 200px;
+    flex: 1;
 }
 
 .summary-stats ul {
@@ -339,8 +352,9 @@ p {
 }
 
 .summary-stats li {
-    padding: 8px 0;
+    padding: 6px 0;
     border-bottom: 1px solid #e9ecef;
+    font-size: 14px;
 }
 
 #completion-title, #game-over-reason, #relationship-status {
@@ -358,6 +372,8 @@ p {
     border-radius: 10px;
     position: relative;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .love-story:before {
@@ -378,13 +394,13 @@ p {
     text-align: center;
     margin-bottom: 15px;
     color: #d32f2f;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .story-content {
     line-height: 1.7;
     color: #495057;
-    font-size: 16px;
+    font-size: 15px;
     text-align: justify;
 }
 
@@ -420,78 +436,75 @@ p {
     
     .screen {
         padding: 0;
+        align-items: flex-start;
     }
     
     .container {
         border-radius: 0;
+        height: 100vh;
         min-height: 100vh;
+        max-height: 100vh;
         padding: 15px;
         margin: 0;
     }
     
     h1 {
-        font-size: 22px;
+        font-size: 20px;
         margin-bottom: 15px;
     }
     
-    p, .option-btn, #event-description, .input-group label, .input-group input {
+    p, #event-description, .input-group label, .input-group input {
         font-size: 15px;
     }
     
-    .status-container {
-        flex-direction: column;
-        gap: 15px;
+    .status-bar {
+        padding: 12px;
+        margin-bottom: 15px;
     }
     
     .character-status {
-        width: 100%;
+        padding: 8px;
         margin-bottom: 5px;
     }
     
-    .stats {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    .character-status h3 {
+        font-size: 15px;
+        margin-bottom: 8px;
     }
     
     .stat {
-        flex: 1 1 30%;
-        font-size: 14px;
-        text-align: center;
-        border-bottom: none;
-        padding: 8px 5px;
-        background-color: #f8f9fa;
-        border-radius: 6px;
-        margin: 0 2px;
+        font-size: 13px;
     }
     
     .relationship-status {
-        padding: 10px 0;
+        padding: 8px 0;
         margin: 5px 0;
     }
     
     #relationship-display {
         font-size: 16px;
-        padding: 8px 15px;
+        padding: 6px 12px;
     }
     
     .event-area {
-        padding: 15px;
+        padding: 12px;
+        max-height: 65vh;
     }
     
     #event-title {
         font-size: 18px;
+        margin-bottom: 12px;
     }
     
     #event-description {
-        font-size: 15px;
         margin-bottom: 15px;
+        font-size: 14px;
     }
     
     .option-btn {
-        padding: 12px;
+        padding: 10px;
         font-size: 14px;
-        min-height: 50px;
+        min-height: 48px;
     }
     
     .btn {
@@ -501,14 +514,14 @@ p {
     
     .love-story {
         padding: 15px;
+        max-height: 250px;
     }
     
     .story-content {
-        font-size: 15px;
+        font-size: 14px;
     }
     
-    .summary-stats > div {
-        flex: 1 1 100%;
-        min-width: 0;
+    #story-summary, #victory-story-summary, #stats-summary, #victory-stats-summary {
+        max-height: 250px;
     }
 } 

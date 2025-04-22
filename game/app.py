@@ -326,8 +326,12 @@ def generate_story_api():
         return jsonify({"status": "error", "message": "游戏未初始化"}), 400
     
     try:
+        # 获取前端请求，是否只生成当前阶段的故事
+        data = request.json or {}
+        current_stage_only = data.get('current_stage_only', True)
+        
         # 记录请求时间
-        print(f"开始生成故事，时间: {datetime.now()}")
+        print(f"开始生成故事，时间: {datetime.now()}, 仅当前阶段: {current_stage_only}")
         
         # 生成故事
         story = generate_love_story(game_state)
