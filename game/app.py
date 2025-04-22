@@ -92,23 +92,23 @@ def check_game_over(game_state):
         if stage == 1:
             if male["money"] + female["money"] <= 15:
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能发展为朋友关系"
-            if male["affection"] <= 50 or female["affection"] <= 50:
+            if male["affection"] <= 5 or female["affection"] <= 5:
                 return True, f"双方好感度不够，未能发展为朋友关系"
-            if male["health"] <= 80 or female["health"] <= 80:
+            if male["health"] <= 70 or female["health"] <= 70:
                 return True, f"健康状况不佳，未能发展为朋友关系"
         elif stage == 2:
-            if male["money"] + female["money"] <= 30:
+            if male["money"] + female["money"] <= 10:
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能发展为恋人关系"
             if male["affection"] <= 80 or female["affection"] <= 80:
                 return True, f"双方好感度不够，未能发展为恋人关系"
-            if male["health"] <= 80 or female["health"] <= 80:
+            if male["health"] <= 60 or female["health"] <= 60:
                 return True, f"健康状况不佳，未能发展为恋人关系"
         elif stage == 3:
-            if male["money"] + female["money"] <= 50:
+            if male["money"] + female["money"] <= 20:
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能步入婚姻"
             if male["affection"] <= 100 or female["affection"] <= 100:
                 return True, f"双方好感度不够，未能步入婚姻"
-            if male["health"] <= 80 or female["health"] <= 80:
+            if male["health"] <= 60 or female["health"] <= 60:
                 return True, f"健康状况不佳，未能步入婚姻"
     
     return False, ""
