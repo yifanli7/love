@@ -7,12 +7,17 @@ import glob
 
 def compile_events():
     """编译所有事件到一个文件"""
-    events_dir = os.path.join("event", "events")
-    output_dir = os.path.join("game", "static", "data")
-    output_file = os.path.join(output_dir, "all_events.json")
+    # 获取当前脚本所在目录
+    current_dir = os.getcwd()
+    
+    # 确定events文件夹路径
+    events_dir = os.path.join(current_dir, "events")
     
     # 确保输出目录存在
+    output_dir = os.path.join(os.path.dirname(current_dir), "game", "static", "data")
     os.makedirs(output_dir, exist_ok=True)
+    
+    output_file = os.path.join(output_dir, "all_events.json")
     
     # 初始化事件结构
     all_events = {
@@ -40,6 +45,7 @@ def compile_events():
             
             # 查找所有事件文件
             event_files = glob.glob(os.path.join(character_dir, "*.json"))
+            print(f"在 {character_dir} 中找到 {len(event_files)} 个事件文件")
             
             for event_file in event_files:
                 try:
@@ -63,21 +69,5 @@ def compile_events():
         for character, events in stage_data.items():
             print(f"{stage_key} - {character}: {len(events)} 个事件")
 
-def main():
-    # 首先确保events目录结构存在
-    events_dir = os.path.join("event", "events")
-    os.makedirs(events_dir, exist_ok=True)
-    
-    for stage in range(1, 4):
-        stage_dir = os.path.join(events_dir, f"stage{stage}")
-        os.makedirs(stage_dir, exist_ok=True)
-        
-        for character in ["male", "female"]:
-            character_dir = os.path.join(stage_dir, character)
-            os.makedirs(character_dir, exist_ok=True)
-    
-    # 编译事件
-    compile_events()
-
 if __name__ == "__main__":
-    main() 
+    compile_events() 

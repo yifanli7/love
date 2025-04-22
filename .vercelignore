@@ -1,6 +1,7 @@
 # 开发和事件生成相关文件
 event/event_generator.py
-event/events/
+# 保留events目录，确保数据正常加载
+#event/events/
 
 # 版本控制
 .git/
