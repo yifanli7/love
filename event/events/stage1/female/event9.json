@@ -9,12 +9,12 @@
       "effects": {
         "male": {
           "money": 0,
-          "affection": 5,
+          "affection": 15,
           "health": 2
         },
         "female": {
           "money": 0,
-          "affection": 5,
+          "affection": 15,
           "health": 2
         }
       }
