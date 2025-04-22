@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify, session, make_respon
 import json
 import random
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import secrets
 
 # 获取当前文件的目录
@@ -11,19 +11,15 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 
-# 使用cookie存储游戏状态
+# 使用服务器会话存储游戏状态，而不是cookie
 def get_game_state():
-    state_cookie = request.cookies.get('game_state')
-    if state_cookie:
-        try:
-            return json.loads(state_cookie)
-        except:
-            return None
+    if 'game_state' in session:
+        return session['game_state']
     return None
 
-# 设置游戏状态到cookie
+# 设置游戏状态到session
 def set_game_state(response, game_state):
-    response.set_cookie('game_state', json.dumps(game_state), max_age=60*60*24*7)  # 7天过期
+    session['game_state'] = game_state
     return response
 
 # 加载所有事件
@@ -52,13 +48,13 @@ def init_game(male_name="A", female_name="B"):
             "name": male_name,
             "money": 40,
             "affection": 5,
-            "health": 80
+            "health": 90
         },
         "female": {
             "name": female_name,
             "money": 40,
             "affection": 5,
-            "health": 80
+            "health": 90
         },
         "stage": 1,
         "events_happened": [],
@@ -94,17 +90,17 @@ def check_game_over(game_state):
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能发展为朋友关系"
             if male["affection"] <= 50 or female["affection"] <= 50:
                 return True, f"双方好感度不够，未能发展为朋友关系"
-            if male["health"] <= 80 or female["health"] <= 80:
+            if male["health"] <= 60 or female["health"] <= 60:
                 return True, f"健康状况不佳，未能发展为朋友关系"
         elif stage == 2:
-            if male["money"] + female["money"] <= 30:
+            if male["money"] + female["money"] <= 20:
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能发展为恋人关系"
             if male["affection"] <= 80 or female["affection"] <= 80:
                 return True, f"双方好感度不够，未能发展为恋人关系"
-            if male["health"] <= 80 or female["health"] <= 80:
+            if male["health"] <= 70 or female["health"] <= 70:
                 return True, f"健康状况不佳，未能发展为恋人关系"
         elif stage == 3:
-            if male["money"] + female["money"] <= 50:
+            if male["money"] + female["money"] <= 30:
                 return True, f"{male['name']}和{female['name']}的共同财富不足，未能步入婚姻"
             if male["affection"] <= 100 or female["affection"] <= 100:
                 return True, f"双方好感度不够，未能步入婚姻"
@@ -142,9 +138,9 @@ def initialize_game():
         female_name = 'B'
     
     game_state = init_game(male_name, female_name)
+    session['game_state'] = game_state
     
-    response = make_response(jsonify({"status": "success", "game_state": game_state}))
-    return set_game_state(response, game_state)
+    return jsonify({"status": "success", "game_state": game_state})
 
 @app.route('/start_stage', methods=['POST'])
 def start_stage():
@@ -160,8 +156,8 @@ def start_stage():
     # 输出调试信息
     print(f"开始阶段 {game_state['stage']}，重置事件计数，当前角色设为 {game_state['current_turn']}")
     
-    response = make_response(jsonify({"status": "success", "game_state": game_state}))
-    return set_game_state(response, game_state)
+    session['game_state'] = game_state
+    return jsonify({"status": "success", "game_state": game_state})
 
 @app.route('/get_event', methods=['GET'])
 def get_event():
@@ -251,6 +247,7 @@ def choose_option():
         game_over, reason = check_game_over(game_state)
         if game_over:
             print(f"游戏结束原因: {reason}")
+            session['game_state'] = game_state
             return jsonify({
                 "status": "game_over",
                 "reason": reason,
@@ -271,6 +268,7 @@ def choose_option():
             # 检查是否胜利
             if check_victory(game_state):
                 print("游戏胜利")
+                session['game_state'] = game_state
                 return jsonify({
                     "status": "victory",
                     "game_state": game_state
@@ -289,27 +287,29 @@ def choose_option():
         game_over, reason = check_game_over(game_state)
         if game_over:
             print(f"游戏提前结束: {reason}")
+            session['game_state'] = game_state
             return jsonify({
                 "status": "game_over",
                 "reason": reason,
                 "game_state": game_state
             })
     
-    response = make_response(jsonify({
+    session['game_state'] = game_state
+    return jsonify({
         "status": "success",
         "game_state": game_state,
         "stage_complete": stage_complete
-    }))
-    return set_game_state(response, game_state)
+    })
 
 @app.route('/reset_game', methods=['POST'])
 def reset_game():
-    response = make_response(jsonify({"status": "success"}))
-    response.delete_cookie('game_state')
-    return response
+    session.pop('game_state', None)
+    return jsonify({"status": "success"})
 
 if __name__ == '__main__':
     # 确保静态数据目录存在
     data_dir = os.path.join(base_dir, 'static/data')
     os.makedirs(data_dir, exist_ok=True)
+    # 增加session过期时间以确保游戏状态不会过早丢失
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=1)
     app.run(debug=True, port=8080) 
