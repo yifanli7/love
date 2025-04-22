@@ -169,7 +169,15 @@ def get_event():
     
     # 获取当前阶段对应角色的事件
     stage_key = f"stage{stage}"
-    events_pool = all_events.get(stage_key, {}).get(current_turn, [])
+    
+    # 检查当前阶段是否存在对应角色的事件
+    if stage_key not in all_events or current_turn not in all_events[stage_key] or not all_events[stage_key][current_turn]:
+        return jsonify({"status": "error", "message": f"没有可用的第{stage}阶段{current_turn}角色事件"}), 400
+    
+    events_pool = all_events[stage_key][current_turn]
+    
+    # 打印调试信息
+    print(f"获取第{stage}阶段{current_turn}角色事件，事件池大小: {len(events_pool)}")
     
     # 移除已经发生过的特殊事件
     filtered_events = []
@@ -252,6 +260,8 @@ def choose_option():
         
         # 增加阶段
         game_state["stage"] += 1
+        # 重置当前回合为男性角色，以便在下一阶段开始时从男性角色开始
+        game_state["current_turn"] = "male"
         stage_complete = True
     else:
         # 检查属性是否小于0
