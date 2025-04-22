@@ -1,0 +1,23 @@
+# 开发和事件生成相关文件
+event/event_generator.py
+event/events/
+
+# 版本控制
+.git/
+.gitignore
+
+# 虚拟环境
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 系统文件
+.DS_Store
+
+# 本地开发配置
+render.yaml
+Procfile
+
+# 仅保留必要的运行文件，其他开发文件排除
+README.md 

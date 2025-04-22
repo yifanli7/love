@@ -1,0 +1,19 @@
+# 虚拟环境
+.venv/
+venv/
+ENV/
+
+# Python编译文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 系统文件
+.DS_Store
+
+# Vercel
+.vercel
+
+# 缓存
+.cache/
+.idea/ 
