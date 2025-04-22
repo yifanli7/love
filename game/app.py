@@ -5,13 +5,17 @@ import os
 from datetime import datetime
 import secrets
 
+# 获取当前文件的目录
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 
 # 加载所有事件
 def load_events():
     try:
-        with open('game/static/data/all_events.json', 'r', encoding='utf-8') as f:
+        events_path = os.path.join(base_dir, 'static/data/all_events.json')
+        with open(events_path, 'r', encoding='utf-8') as f:
             return json.load(f)
     except FileNotFoundError:
         # 如果文件不存在，返回一个样例事件
@@ -244,5 +248,6 @@ def reset_game():
 
 if __name__ == '__main__':
     # 确保静态数据目录存在
-    os.makedirs('game/static/data', exist_ok=True)
+    data_dir = os.path.join(base_dir, 'static/data')
+    os.makedirs(data_dir, exist_ok=True)
     app.run(debug=True) 
