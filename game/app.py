@@ -312,4 +312,4 @@ if __name__ == '__main__':
     # 确保静态数据目录存在
     data_dir = os.path.join(base_dir, 'static/data')
     os.makedirs(data_dir, exist_ok=True)
-    app.run(debug=True) 
+    app.run(debug=True, port=8080) 
