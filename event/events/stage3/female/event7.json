@@ -7,23 +7,47 @@
     {
       "text": "全力投入公益活动，带动伴侣一起参与",
       "effects": {
-        "male": {"money": -2, "affection": 7, "health": 2},
-        "female": {"money": -2, "affection": 8, "health": -2}
+        "male": {
+          "money": -2,
+          "affection": 5,
+          "health": 2
+        },
+        "female": {
+          "money": -2,
+          "affection": 5,
+          "health": -2
+        }
       }
     },
     {
       "text": "在不影响家庭生活的前提下适度参与",
       "effects": {
-        "male": {"money": 0, "affection": 5, "health": 1},
-        "female": {"money": 0, "affection": 6, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 1
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "捐款支持但不亲自参与活动",
       "effects": {
-        "male": {"money": -4, "affection": 2, "health": 0},
-        "female": {"money": -4, "affection": 3, "health": 1}
+        "male": {
+          "money": -4,
+          "affection": 2,
+          "health": 0
+        },
+        "female": {
+          "money": -4,
+          "affection": 3,
+          "health": 1
+        }
       }
     }
   ]
-} 
+}

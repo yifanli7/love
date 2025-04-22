@@ -7,23 +7,47 @@
     {
       "text": "与他深入沟通，寻求共同解决方案",
       "effects": {
-        "male": {"money": 3, "affection": 10, "health": 0},
-        "female": {"money": 8, "affection": 8, "health": 0}
+        "male": {
+          "money": 3,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": 8,
+          "affection": 4,
+          "health": 0
+        }
       }
     },
     {
       "text": "优先考虑关系，调整职业规划",
       "effects": {
-        "male": {"money": 0, "affection": 8, "health": 0},
-        "female": {"money": -2, "affection": 5, "health": -2}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": -2,
+          "affection": 4,
+          "health": -2
+        }
       }
     },
     {
       "text": "把握机会，相信关系能经受考验",
       "effects": {
-        "male": {"money": 2, "affection": 4, "health": -1},
-        "female": {"money": 12, "affection": 4, "health": 1}
+        "male": {
+          "money": 2,
+          "affection": 4,
+          "health": -1
+        },
+        "female": {
+          "money": 12,
+          "affection": 4,
+          "health": 1
+        }
       }
     }
   ]
-} 
+}

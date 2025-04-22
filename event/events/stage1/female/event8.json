@@ -7,23 +7,47 @@
     {
       "text": "邀请他加入你们的聚会",
       "effects": {
-        "male": {"money": -2, "affection": 5, "health": 0},
-        "female": {"money": 0, "affection": 3, "health": -1}
+        "male": {
+          "money": -2,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": -1
+        }
       }
     },
     {
       "text": "简单打招呼后继续和朋友聊天",
       "effects": {
-        "male": {"money": 0, "affection": 2, "health": 0},
-        "female": {"money": 0, "affection": 1, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "假装没看见，避免尴尬",
       "effects": {
-        "male": {"money": 0, "affection": -2, "health": 0},
-        "female": {"money": 0, "affection": 0, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": -5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 0,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

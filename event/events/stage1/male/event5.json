@@ -7,23 +7,47 @@
     {
       "text": "提议一起复习，互相帮助",
       "effects": {
-        "male": {"money": 0, "affection": 3, "health": -1},
-        "female": {"money": 0, "affection": 4, "health": -1}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": -1
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": -1
+        }
       }
     },
     {
       "text": "简单打招呼后继续自己的学习",
       "effects": {
-        "male": {"money": 0, "affection": 1, "health": 0},
-        "female": {"money": 0, "affection": 1, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "假装没看见，专注于自己的复习",
       "effects": {
-        "male": {"money": 0, "affection": 0, "health": 1},
-        "female": {"money": 0, "affection": -1, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 0,
+          "health": 1
+        },
+        "female": {
+          "money": 0,
+          "affection": -5,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

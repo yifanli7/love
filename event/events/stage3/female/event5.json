@@ -7,23 +7,47 @@
     {
       "text": "积极拓展人脉，寻求合作机会",
       "effects": {
-        "male": {"money": 4, "affection": 0, "health": 0},
-        "female": {"money": 8, "affection": 0, "health": -2}
+        "male": {
+          "money": 4,
+          "affection": 0,
+          "health": 0
+        },
+        "female": {
+          "money": 8,
+          "affection": 0,
+          "health": -2
+        }
       }
     },
     {
       "text": "为伴侣引荐有价值的商业联系",
       "effects": {
-        "male": {"money": 10, "affection": 8, "health": 0},
-        "female": {"money": 2, "affection": 5, "health": 0}
+        "male": {
+          "money": 10,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 2,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "保持社交礼节但不过度利用关系",
       "effects": {
-        "male": {"money": 1, "affection": 3, "health": 1},
-        "female": {"money": 3, "affection": 2, "health": 1}
+        "male": {
+          "money": 1,
+          "affection": 3,
+          "health": 1
+        },
+        "female": {
+          "money": 3,
+          "affection": 2,
+          "health": 1
+        }
       }
     }
   ]
-} 
+}

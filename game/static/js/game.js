@@ -283,7 +283,9 @@ const UI = {
         document.getElementById('female-health').textContent = gameState.female.health;
         
         // 更新关系状态
-        document.getElementById('relationship-display').textContent = gameState.relationship;
+        const relationshipDisplay = document.getElementById('relationship-display');
+        relationshipDisplay.textContent = gameState.relationship;
+        relationshipDisplay.setAttribute('data-status', gameState.relationship);
     },
     
     // 显示事件

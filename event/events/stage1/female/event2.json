@@ -7,23 +7,47 @@
     {
       "text": "主动邀请他一起完成讨论",
       "effects": {
-        "male": {"money": 0, "affection": 4, "health": 0},
-        "female": {"money": 0, "affection": 3, "health": -1}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": -1
+        }
       }
     },
     {
       "text": "等他主动与你搭话",
       "effects": {
-        "male": {"money": 0, "affection": 1, "health": 0},
-        "female": {"money": 0, "affection": 1, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "试图找其他同学组队",
       "effects": {
-        "male": {"money": 0, "affection": -1, "health": 0},
-        "female": {"money": 0, "affection": 0, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": -5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 0,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

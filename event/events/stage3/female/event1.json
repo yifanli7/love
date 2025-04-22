@@ -7,23 +7,47 @@
     {
       "text": "举办一场豪华的大型婚礼",
       "effects": {
-        "male": {"money": -15, "affection": 8, "health": -2},
-        "female": {"money": -15, "affection": 10, "health": -3}
+        "male": {
+          "money": -15,
+          "affection": 5,
+          "health": -2
+        },
+        "female": {
+          "money": -15,
+          "affection": 5,
+          "health": -3
+        }
       }
     },
     {
       "text": "选择一个简单但精致的小型婚礼",
       "effects": {
-        "male": {"money": -8, "affection": 10, "health": 0},
-        "female": {"money": -8, "affection": 12, "health": 0}
+        "male": {
+          "money": -8,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": -8,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "只邀请最亲近的人举行私密婚礼",
       "effects": {
-        "male": {"money": -5, "affection": 7, "health": 2},
-        "female": {"money": -5, "affection": 8, "health": 2}
+        "male": {
+          "money": -5,
+          "affection": 5,
+          "health": 2
+        },
+        "female": {
+          "money": -5,
+          "affection": 5,
+          "health": 2
+        }
       }
     }
   ]
-} 
+}

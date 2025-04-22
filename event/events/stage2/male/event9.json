@@ -7,23 +7,47 @@
     {
       "text": "与她深入讨论，共同做决定",
       "effects": {
-        "male": {"money": 5, "affection": 8, "health": 0},
-        "female": {"money": 0, "affection": 9, "health": -1}
+        "male": {
+          "money": 5,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": -1
+        }
       }
     },
     {
       "text": "为了关系放弃这个机会",
       "effects": {
-        "male": {"money": -2, "affection": 6, "health": -2},
-        "female": {"money": 0, "affection": 7, "health": 0}
+        "male": {
+          "money": -2,
+          "affection": 4,
+          "health": -2
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        }
       }
     },
     {
       "text": "接受机会，承诺保持联系",
       "effects": {
-        "male": {"money": 7, "affection": 4, "health": 1},
-        "female": {"money": 0, "affection": 3, "health": -1}
+        "male": {
+          "money": 7,
+          "affection": 4,
+          "health": 1
+        },
+        "female": {
+          "money": 0,
+          "affection": 3,
+          "health": -1
+        }
       }
     }
   ]
-} 
+}

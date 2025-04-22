@@ -7,23 +7,47 @@
     {
       "text": "坦诚地分享你对未来的期望和规划",
       "effects": {
-        "male": {"money": 0, "affection": 9, "health": -1},
-        "female": {"money": 0, "affection": 10, "health": -1}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": -1
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": -1
+        }
       }
     },
     {
       "text": "倾听她的想法，尊重她的观点",
       "effects": {
-        "male": {"money": 0, "affection": 7, "health": 0},
-        "female": {"money": 0, "affection": 8, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        }
       }
     },
     {
       "text": "避免谈论太远的未来，专注当下",
       "effects": {
-        "male": {"money": 0, "affection": 3, "health": 1},
-        "female": {"money": 0, "affection": 3, "health": 1}
+        "male": {
+          "money": 0,
+          "affection": 3,
+          "health": 1
+        },
+        "female": {
+          "money": 0,
+          "affection": 3,
+          "health": 1
+        }
       }
     }
   ]
-} 
+}

@@ -7,23 +7,47 @@
     {
       "text": "全力投入发展副业",
       "effects": {
-        "male": {"money": 0, "affection": -4, "health": 0},
-        "female": {"money": 10, "affection": -2, "health": -4}
+        "male": {
+          "money": 0,
+          "affection": -3,
+          "health": 0
+        },
+        "female": {
+          "money": 10,
+          "affection": -2,
+          "health": -4
+        }
       }
     },
     {
       "text": "在不影响正职和关系的前提下适度发展",
       "effects": {
-        "male": {"money": 0, "affection": 2, "health": 0},
-        "female": {"money": 5, "affection": 2, "health": -2}
+        "male": {
+          "money": 0,
+          "affection": 2,
+          "health": 0
+        },
+        "female": {
+          "money": 5,
+          "affection": 2,
+          "health": -2
+        }
       }
     },
     {
       "text": "邀请伴侣一起参与这个项目",
       "effects": {
-        "male": {"money": 3, "affection": 5, "health": -1},
-        "female": {"money": 6, "affection": 4, "health": -2}
+        "male": {
+          "money": 3,
+          "affection": 5,
+          "health": -1
+        },
+        "female": {
+          "money": 6,
+          "affection": 4,
+          "health": -2
+        }
       }
     }
   ]
-} 
+}

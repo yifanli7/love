@@ -7,23 +7,47 @@
     {
       "text": "亲手制作一件衣物",
       "effects": {
-        "male": {"money": 0, "affection": 7, "health": 0},
-        "female": {"money": -3, "affection": 4, "health": -1}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": -3,
+          "affection": 4,
+          "health": -1
+        }
       }
     },
     {
       "text": "购买他喜欢的书籍",
       "effects": {
-        "male": {"money": 0, "affection": 5, "health": 0},
-        "female": {"money": -5, "affection": 3, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": -5,
+          "affection": 3,
+          "health": 0
+        }
       }
     },
     {
       "text": "制作一张手工贺卡",
       "effects": {
-        "male": {"money": 0, "affection": 4, "health": 0},
-        "female": {"money": -1, "affection": 2, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": -1,
+          "affection": 2,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

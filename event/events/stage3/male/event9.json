@@ -7,23 +7,47 @@
     {
       "text": "选择搬到更好的城市发展",
       "effects": {
-        "male": {"money": -10, "affection": 5, "health": -2},
-        "female": {"money": 0, "affection": 4, "health": -2}
+        "male": {
+          "money": -10,
+          "affection": 5,
+          "health": -2
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": -2
+        }
       }
     },
     {
       "text": "留在熟悉的城市，靠近亲友",
       "effects": {
-        "male": {"money": 2, "affection": 6, "health": 3},
-        "female": {"money": 0, "affection": 8, "health": 3}
+        "male": {
+          "money": 2,
+          "affection": 5,
+          "health": 3
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 3
+        }
       }
     },
     {
       "text": "考虑在郊区购买更大的房子",
       "effects": {
-        "male": {"money": -15, "affection": 7, "health": 4},
-        "female": {"money": 0, "affection": 9, "health": 5}
+        "male": {
+          "money": -15,
+          "affection": 5,
+          "health": 4
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 5
+        }
       }
     }
   ]
-} 
+}

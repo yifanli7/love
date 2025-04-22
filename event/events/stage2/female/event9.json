@@ -7,23 +7,47 @@
     {
       "text": "坦诚地表达你的感受和需求",
       "effects": {
-        "male": {"money": 0, "affection": 7, "health": 0},
-        "female": {"money": 0, "affection": 8, "health": 2}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 2
+        }
       }
     },
     {
       "text": "通过行动暗示，期待他能察觉",
       "effects": {
-        "male": {"money": 0, "affection": 3, "health": 0},
-        "female": {"money": 0, "affection": 4, "health": -1}
+        "male": {
+          "money": 0,
+          "affection": 3,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": -1
+        }
       }
     },
     {
       "text": "调整自己的期望，给他更多空间",
       "effects": {
-        "male": {"money": 0, "affection": 2, "health": 1},
-        "female": {"money": 0, "affection": 3, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 2,
+          "health": 1
+        },
+        "female": {
+          "money": 0,
+          "affection": 3,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

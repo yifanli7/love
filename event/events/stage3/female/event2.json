@@ -7,23 +7,47 @@
     {
       "text": "全力把握机会，暂时降低对关系的投入",
       "effects": {
-        "male": {"money": 0, "affection": -3, "health": 0},
-        "female": {"money": 8, "affection": -2, "health": -3}
+        "male": {
+          "money": 0,
+          "affection": -3,
+          "health": 0
+        },
+        "female": {
+          "money": 8,
+          "affection": -2,
+          "health": -3
+        }
       }
     },
     {
       "text": "在工作和关系之间寻求平衡",
       "effects": {
-        "male": {"money": 0, "affection": 2, "health": 0},
-        "female": {"money": 4, "affection": 3, "health": -1}
+        "male": {
+          "money": 0,
+          "affection": 2,
+          "health": 0
+        },
+        "female": {
+          "money": 4,
+          "affection": 3,
+          "health": -1
+        }
       }
     },
     {
       "text": "放弃机会，优先考虑稳定的关系",
       "effects": {
-        "male": {"money": 0, "affection": 6, "health": 0},
-        "female": {"money": -2, "affection": 5, "health": 2}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": -2,
+          "affection": 5,
+          "health": 2
+        }
       }
     }
   ]
-} 
+}

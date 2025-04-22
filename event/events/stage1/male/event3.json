@@ -7,23 +7,47 @@
     {
       "text": "买一杯咖啡送给她",
       "effects": {
-        "male": {"money": -2, "affection": 3, "health": 0},
-        "female": {"money": 0, "affection": 3, "health": 0}
+        "male": {
+          "money": -2,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "走过去礼貌地打个招呼",
       "effects": {
-        "male": {"money": 0, "affection": 2, "health": 0},
-        "female": {"money": 0, "affection": 2, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "找个角落安静地坐下",
       "effects": {
-        "male": {"money": -1, "affection": 0, "health": 0},
-        "female": {"money": 0, "affection": 0, "health": 0}
+        "male": {
+          "money": -1,
+          "affection": 0,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 0,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

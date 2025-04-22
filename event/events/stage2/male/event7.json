@@ -7,23 +7,47 @@
     {
       "text": "安排一次正式的家庭晚餐",
       "effects": {
-        "male": {"money": -5, "affection": 8, "health": -2},
-        "female": {"money": 0, "affection": 7, "health": -3}
+        "male": {
+          "money": -5,
+          "affection": 4,
+          "health": -2
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": -3
+        }
       }
     },
     {
       "text": "选择一个轻松的场合如咖啡厅见面",
       "effects": {
-        "male": {"money": -3, "affection": 6, "health": -1},
-        "female": {"money": 0, "affection": 8, "health": -1}
+        "male": {
+          "money": -3,
+          "affection": 4,
+          "health": -1
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": -1
+        }
       }
     },
     {
       "text": "推迟这次见面，等关系更稳定",
       "effects": {
-        "male": {"money": 0, "affection": 3, "health": 0},
-        "female": {"money": 0, "affection": 4, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 3,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

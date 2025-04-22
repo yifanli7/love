@@ -7,24 +7,47 @@
     {
       "text": "礼貌地请求他帮忙",
       "effects": {
-        "male": {"money": 0, "affection": 4, "health": -1},
-        "female": {"money": 0, "affection": 3, "health": 1}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": -1
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 1
+        }
       }
     },
     {
       "text": "接受他主动提出的帮助",
       "effects": {
-        "male": {"money": 0, "affection": 5, "health": -1},
-        "female": {"money": 0, "affection": 2, "health": 1}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": -1
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 1
+        }
       }
     },
     {
       "text": "坚持自己完成，表现独立",
       "effects": {
-        "male": {"money": 0, "affection": 1, "health": 0},
-        "female": {"money": 0, "affection": 1, "health": -2}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": -2
+        }
       }
     }
   ]
 }
- 

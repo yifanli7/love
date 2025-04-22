@@ -7,23 +7,47 @@
     {
       "text": "精心准备一场浪漫的惊喜",
       "effects": {
-        "male": {"money": -8, "affection": 10, "health": -2},
-        "female": {"money": 0, "affection": 12, "health": 0}
+        "male": {
+          "money": -8,
+          "affection": 4,
+          "health": -2
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        }
       }
     },
     {
       "text": "一起回忆过去的美好时光",
       "effects": {
-        "male": {"money": -3, "affection": 7, "health": 0},
-        "female": {"money": 0, "affection": 8, "health": 1}
+        "male": {
+          "money": -3,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 1
+        }
       }
     },
     {
       "text": "送一个简单的礼物表示纪念",
       "effects": {
-        "male": {"money": -5, "affection": 5, "health": 0},
-        "female": {"money": 0, "affection": 6, "health": 0}
+        "male": {
+          "money": -5,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

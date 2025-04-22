@@ -7,23 +7,47 @@
     {
       "text": "邀请父母搬来同住，全力照顾",
       "effects": {
-        "male": {"money": -7, "affection": 8, "health": -2},
-        "female": {"money": -5, "affection": 10, "health": -4}
+        "male": {
+          "money": -7,
+          "affection": 5,
+          "health": -2
+        },
+        "female": {
+          "money": -5,
+          "affection": 5,
+          "health": -4
+        }
       }
     },
     {
       "text": "安排专业护理，定期探望",
       "effects": {
-        "male": {"money": -12, "affection": 10, "health": 0},
-        "female": {"money": -4, "affection": 8, "health": 2}
+        "male": {
+          "money": -12,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": -4,
+          "affection": 5,
+          "health": 2
+        }
       }
     },
     {
       "text": "与兄弟姐妹分担照顾责任",
       "effects": {
-        "male": {"money": -3, "affection": 8, "health": -1},
-        "female": {"money": -2, "affection": 7, "health": -2}
+        "male": {
+          "money": -3,
+          "affection": 5,
+          "health": -1
+        },
+        "female": {
+          "money": -2,
+          "affection": 5,
+          "health": -2
+        }
       }
     }
   ]
-} 
+}

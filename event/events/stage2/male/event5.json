@@ -7,23 +7,47 @@
     {
       "text": "与她坦诚分享你的压力和困难",
       "effects": {
-        "male": {"money": 3, "affection": 7, "health": 2},
-        "female": {"money": 0, "affection": 8, "health": 0}
+        "male": {
+          "money": 3,
+          "affection": 4,
+          "health": 2
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        }
       }
     },
     {
       "text": "尽量挤出时间陪她，不谈自己的压力",
       "effects": {
-        "male": {"money": 0, "affection": 4, "health": -3},
-        "female": {"money": 0, "affection": 6, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": -3
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        }
       }
     },
     {
       "text": "请她理解你需要一段时间专注工作",
       "effects": {
-        "male": {"money": 6, "affection": 3, "health": 1},
-        "female": {"money": 0, "affection": 3, "health": 0}
+        "male": {
+          "money": 6,
+          "affection": 3,
+          "health": 1
+        },
+        "female": {
+          "money": 0,
+          "affection": 3,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

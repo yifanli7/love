@@ -7,23 +7,47 @@
     {
       "text": "主动与她合作完成社团任务",
       "effects": {
-        "male": {"money": 0, "affection": 4, "health": -1},
-        "female": {"money": 0, "affection": 3, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": -1
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "在活动中偶尔与她交流",
       "effects": {
-        "male": {"money": 0, "affection": 2, "health": 0},
-        "female": {"money": 0, "affection": 2, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 5,
+          "health": 0
+        }
       }
     },
     {
       "text": "专注于社团活动，很少注意她",
       "effects": {
-        "male": {"money": 0, "affection": 0, "health": 1},
-        "female": {"money": 0, "affection": 0, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 0,
+          "health": 1
+        },
+        "female": {
+          "money": 0,
+          "affection": 0,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

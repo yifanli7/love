@@ -7,23 +7,47 @@
     {
       "text": "计划一次浪漫的周末度假",
       "effects": {
-        "male": {"money": -5, "affection": 9, "health": 2},
-        "female": {"money": -5, "affection": 8, "health": 2}
+        "male": {
+          "money": -5,
+          "affection": 4,
+          "health": 2
+        },
+        "female": {
+          "money": -5,
+          "affection": 4,
+          "health": 2
+        }
       }
     },
     {
       "text": "提议一次简单的一日游",
       "effects": {
-        "male": {"money": -2, "affection": 6, "health": 1},
-        "female": {"money": -2, "affection": 5, "health": 1}
+        "male": {
+          "money": -2,
+          "affection": 4,
+          "health": 1
+        },
+        "female": {
+          "money": -2,
+          "affection": 4,
+          "health": 1
+        }
       }
     },
     {
       "text": "建议先存钱，计划一次更好的旅行",
       "effects": {
-        "male": {"money": 2, "affection": 3, "health": 0},
-        "female": {"money": 2, "affection": 3, "health": 0}
+        "male": {
+          "money": 2,
+          "affection": 3,
+          "health": 0
+        },
+        "female": {
+          "money": 2,
+          "affection": 3,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}

@@ -1,0 +1,3200 @@
+{
+  "stage1": {
+    "male": [
+      {
+        "id": "m1_event1",
+        "title": "初次见面",
+        "description": "今天，你在公园散步时无意间遇到了一位女孩，她似乎正在寻找什么东西。",
+        "special": false,
+        "options": [
+          {
+            "text": "上前询问是否需要帮助",
+            "effects": {
+              "male": {
+                "money": -1,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "默默观察她的行动",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "装作没看见继续走开",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": -1,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event6",
+        "title": "社团活动",
+        "description": "你发现她也参加了同一个社团，今天有活动。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动与她合作完成社团任务",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "在活动中偶尔与她交流",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "专注于社团活动，很少注意她",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 0,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event7",
+        "title": "午餐时间",
+        "description": "你在学校食堂看到她一个人吃饭。",
+        "special": false,
+        "options": [
+          {
+            "text": "过去问她是否可以一起吃饭",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "在旁边的座位坐下，简单问候",
+            "effects": {
+              "male": {
+                "money": 1,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "找其他地方坐下",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event4",
+        "title": "小组讨论",
+        "description": "你们被分到同一个课程小组，需要一起完成一个项目。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动承担更多的工作量",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "公平分配工作，定期沟通进度",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "尽量减少互动，只完成自己的部分",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": -1,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event8",
+        "title": "校园活动",
+        "description": "学校举办文化节，你在人群中发现了她。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动上前邀请她一起参观活动",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 4,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "在活动中偶遇时与她打招呼",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "专注于自己的体验，不去打扰她",
+            "effects": {
+              "male": {
+                "money": -1,
+                "affection": 0,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event10",
+        "title": "生日惊喜",
+        "description": "你偶然得知今天是她的生日。",
+        "special": true,
+        "options": [
+          {
+            "text": "准备一份精心的礼物送给她",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 6,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 8,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "送一张手写的生日贺卡",
+            "effects": {
+              "male": {
+                "money": -1,
+                "affection": 4,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "发一条简单的生日祝福信息",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event9",
+        "title": "雨中相遇",
+        "description": "放学时突然下起了大雨，你看到她没带伞，正在等雨停。",
+        "special": false,
+        "options": [
+          {
+            "text": "提出送她回宿舍/家",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": 5,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "借给她伞，自己淋雨回去",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": -3
+              },
+              "female": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "建议她等校车或叫出租车",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": -2,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event5",
+        "title": "图书馆学习",
+        "description": "期末考试临近，你在图书馆遇到了正在复习的她。",
+        "special": false,
+        "options": [
+          {
+            "text": "提议一起复习，互相帮助",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "简单打招呼后继续自己的学习",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "假装没看见，专注于自己的复习",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 0,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": -1,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event2",
+        "title": "校园邂逅",
+        "description": "你在校园里偶遇了她，她似乎正在为一门课程的作业发愁。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动提出帮助她完成作业",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": 3,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "建议她去找教授或助教寻求帮助",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "告诉她自己也不懂这门课",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m1_event3",
+        "title": "咖啡厅偶遇",
+        "description": "你在校园咖啡厅看到她一个人坐着，似乎在等人。",
+        "special": false,
+        "options": [
+          {
+            "text": "买一杯咖啡送给她",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "走过去礼貌地打个招呼",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "找个角落安静地坐下",
+            "effects": {
+              "male": {
+                "money": -1,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "female": [
+      {
+        "id": "f1_event1",
+        "title": "偶然相遇",
+        "description": "你在图书馆看书时，一位男士似乎正在寻找同一本书。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动分享自己的书",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "告诉他书在哪个区域",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "装作没注意到",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": -1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event6",
+        "title": "校园音乐会",
+        "description": "学校将举办音乐会，你偶然听说他也打算去。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动询问是否可以一起去",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "在音乐会上若遇见再打招呼",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "独自去音乐会，专注于音乐",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event7",
+        "title": "借书请求",
+        "description": "他向你借一本你正在看的教科书，说他的那本丢了。",
+        "special": false,
+        "options": [
+          {
+            "text": "借给他并主动提出一起学习",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": 1
+              },
+              "female": {
+                "money": 2,
+                "affection": 4,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "借给他，但约定归还时间",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 1,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "建议他去图书馆借阅",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event4",
+        "title": "学习困难",
+        "description": "你在一门课程上遇到了困难，看到他似乎很擅长这门课。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动请教他学习方法",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": 5,
+                "health": -1
+              },
+              "female": {
+                "money": 3,
+                "affection": 3,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "间接询问他是否能提供一些学习资料",
+            "effects": {
+              "male": {
+                "money": 1,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 1,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "自己努力解决困难",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": -2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event8",
+        "title": "偶遇朋友",
+        "description": "你和他偶然在校外咖啡厅相遇，你正和几个朋友在一起。",
+        "special": false,
+        "options": [
+          {
+            "text": "邀请他加入你们的聚会",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "简单打招呼后继续和朋友聊天",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "假装没看见，避免尴尬",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": -2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event10",
+        "title": "帮助时刻",
+        "description": "你正在搬运一些重物到宿舍/家里，看起来有些吃力，这时他经过了。",
+        "special": true,
+        "options": [
+          {
+            "text": "礼貌地请求他帮忙",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "接受他主动提出的帮助",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "坚持自己完成，表现独立",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": -2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event9",
+        "title": "健身遇见",
+        "description": "你在学校健身房锻炼时碰到了他。",
+        "special": false,
+        "options": [
+          {
+            "text": "邀请他一起训练，互相监督",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": 2
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 2
+              }
+            }
+          },
+          {
+            "text": "简单交流健身心得",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "微笑点头，继续自己的锻炼",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event5",
+        "title": "小组项目",
+        "description": "你们被分到同一个小组完成一个学期项目，需要选择项目主题。",
+        "special": false,
+        "options": [
+          {
+            "text": "尊重他的意见，找到双方都感兴趣的主题",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "坚持自己喜欢的主题，试图说服他",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "让他做决定，自己配合完成",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event2",
+        "title": "课堂讨论",
+        "description": "在一堂课上，老师要求同学们两人一组进行讨论，他坐在你旁边。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动邀请他一起完成讨论",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "等他主动与你搭话",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "试图找其他同学组队",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": -1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1_event3",
+        "title": "社交媒体",
+        "description": "你发现他在社交媒体上关注了你，并点赞了你的几张照片。",
+        "special": false,
+        "options": [
+          {
+            "text": "回关他并留言感谢",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "只是回关但不主动互动",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "暂时不做任何回应",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": -1,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 0,
+                "health": 0
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "stage2": {
+    "male": [
+      {
+        "id": "m2_event1",
+        "title": "约会计划",
+        "description": "你想要邀请她出去约会，考虑了几个不同的选择。",
+        "special": false,
+        "options": [
+          {
+            "text": "邀请她去高级餐厅吃饭",
+            "effects": {
+              "male": {
+                "money": -8,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "邀请她去公园野餐",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 3,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "邀请她去看电影",
+            "effects": {
+              "male": {
+                "money": -4,
+                "affection": 4,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event6",
+        "title": "生病照顾",
+        "description": "她生病了，需要一些照顾和关心。",
+        "special": false,
+        "options": [
+          {
+            "text": "精心照顾她，准备食物和药物",
+            "effects": {
+              "male": {
+                "money": -4,
+                "affection": 8,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 10,
+                "health": 5
+              }
+            }
+          },
+          {
+            "text": "买些水果和药去看望她",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 6,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 7,
+                "health": 3
+              }
+            }
+          },
+          {
+            "text": "发信息问候，建议她多休息",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event7",
+        "title": "家人见面",
+        "description": "你的父母想见见你的女朋友，你需要安排这次见面。",
+        "special": true,
+        "options": [
+          {
+            "text": "安排一次正式的家庭晚餐",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 8,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": 7,
+                "health": -3
+              }
+            }
+          },
+          {
+            "text": "选择一个轻松的场合如咖啡厅见面",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 6,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 8,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "推迟这次见面，等关系更稳定",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event4",
+        "title": "纪念日",
+        "description": "你们相识一周年了，你想为这个特殊的日子做些什么。",
+        "special": true,
+        "options": [
+          {
+            "text": "精心准备一场浪漫的惊喜",
+            "effects": {
+              "male": {
+                "money": -8,
+                "affection": 10,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": 12,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "一起回忆过去的美好时光",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 7,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 8,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "送一个简单的礼物表示纪念",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event8",
+        "title": "深夜谈心",
+        "description": "深夜里，你们进行了一次关于未来的长谈。",
+        "special": false,
+        "options": [
+          {
+            "text": "坦诚地分享你对未来的期望和规划",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 9,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 10,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "倾听她的想法，尊重她的观点",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 7,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 8,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "避免谈论太远的未来，专注当下",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event10",
+        "title": "关系进展",
+        "description": "你们交往已有一段时间，你考虑是否该让关系更进一步。",
+        "special": true,
+        "options": [
+          {
+            "text": "求婚或提出同居，表达认真的承诺",
+            "effects": {
+              "male": {
+                "money": -10,
+                "affection": 12,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 15,
+                "health": -2
+              }
+            }
+          },
+          {
+            "text": "送一件象征关系的礼物，如对戒",
+            "effects": {
+              "male": {
+                "money": -6,
+                "affection": 9,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 10,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "表达爱意，但暂不改变现状",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 5,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event9",
+        "title": "重要决定",
+        "description": "你收到了一个远方的工作/学习机会，这可能意味着暂时的异地恋。",
+        "special": false,
+        "options": [
+          {
+            "text": "与她深入讨论，共同做决定",
+            "effects": {
+              "male": {
+                "money": 5,
+                "affection": 8,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 9,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "为了关系放弃这个机会",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 6,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": 7,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "接受机会，承诺保持联系",
+            "effects": {
+              "male": {
+                "money": 7,
+                "affection": 4,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": -1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event5",
+        "title": "工作压力",
+        "description": "你最近工作/学业压力很大，影响了与她的相处时间。",
+        "special": false,
+        "options": [
+          {
+            "text": "与她坦诚分享你的压力和困难",
+            "effects": {
+              "male": {
+                "money": 3,
+                "affection": 7,
+                "health": 2
+              },
+              "female": {
+                "money": 0,
+                "affection": 8,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "尽量挤出时间陪她，不谈自己的压力",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": -3
+              },
+              "female": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "请她理解你需要一段时间专注工作",
+            "effects": {
+              "male": {
+                "money": 6,
+                "affection": 3,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event2",
+        "title": "情感表达",
+        "description": "你们已经相处了一段时间，你考虑是否该更清晰地表达自己的感情。",
+        "special": false,
+        "options": [
+          {
+            "text": "直接表白，告诉她你的真实感受",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 8,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": 10,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "委婉地暗示，观察她的反应",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "暂时保持现状，等待更合适的时机",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m2_event3",
+        "title": "争执处理",
+        "description": "你们因为一件小事发生了争执，你在考虑如何处理。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动认错，送她一份小礼物",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 6,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 7,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "平静地沟通，分析问题所在",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "给彼此一些冷静的时间",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 1
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "female": [
+      {
+        "id": "f2_event1",
+        "title": "特别的礼物",
+        "description": "你想要送他一份特别的礼物，以表达你的感情。",
+        "special": false,
+        "options": [
+          {
+            "text": "亲手制作一件衣物",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 7,
+                "health": 0
+              },
+              "female": {
+                "money": -3,
+                "affection": 4,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "购买他喜欢的书籍",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": -5,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "制作一张手工贺卡",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              },
+              "female": {
+                "money": -1,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event6",
+        "title": "生日礼物",
+        "description": "他的生日快到了，你想为他准备一份特别的礼物。",
+        "special": true,
+        "options": [
+          {
+            "text": "精心策划一场惊喜派对",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 12,
+                "health": 2
+              },
+              "female": {
+                "money": -8,
+                "affection": 7,
+                "health": -2
+              }
+            }
+          },
+          {
+            "text": "买一个他一直想要的物品",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 9,
+                "health": 0
+              },
+              "female": {
+                "money": -6,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "亲手制作一个有纪念意义的礼物",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 8,
+                "health": 0
+              },
+              "female": {
+                "money": -3,
+                "affection": 6,
+                "health": -1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event7",
+        "title": "支持梦想",
+        "description": "他向你分享了一个重要的梦想或目标，希望得到你的支持。",
+        "special": false,
+        "options": [
+          {
+            "text": "全力支持并提供实际帮助",
+            "effects": {
+              "male": {
+                "money": 4,
+                "affection": 10,
+                "health": 2
+              },
+              "female": {
+                "money": -2,
+                "affection": 7,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "表达支持但提出一些现实考虑",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": 5,
+                "health": 1
+              },
+              "female": {
+                "money": 1,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "婉转地提出你的担忧",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 2,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event4",
+        "title": "朋友聚会",
+        "description": "你的朋友们想见见你的男友，你考虑是否要带他参加朋友聚会。",
+        "special": false,
+        "options": [
+          {
+            "text": "带他一起参加，向朋友介绍",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 7,
+                "health": -1
+              },
+              "female": {
+                "money": -2,
+                "affection": 6,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "先与朋友沟通让他们有心理准备",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": -2,
+                "affection": 4,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "这次不带他，与朋友单独相处",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              },
+              "female": {
+                "money": -2,
+                "affection": 2,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event8",
+        "title": "旅行计划",
+        "description": "你想和他一起规划一次短期旅行，增进感情。",
+        "special": false,
+        "options": [
+          {
+            "text": "计划一次浪漫的周末度假",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 9,
+                "health": 2
+              },
+              "female": {
+                "money": -5,
+                "affection": 8,
+                "health": 2
+              }
+            }
+          },
+          {
+            "text": "提议一次简单的一日游",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 6,
+                "health": 1
+              },
+              "female": {
+                "money": -2,
+                "affection": 5,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "建议先存钱，计划一次更好的旅行",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 2,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event10",
+        "title": "重要抉择",
+        "description": "你收到了一个可能影响你们关系的职业发展机会。",
+        "special": true,
+        "options": [
+          {
+            "text": "与他深入沟通，寻求共同解决方案",
+            "effects": {
+              "male": {
+                "money": 3,
+                "affection": 10,
+                "health": 0
+              },
+              "female": {
+                "money": 8,
+                "affection": 8,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "优先考虑关系，调整职业规划",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 8,
+                "health": 0
+              },
+              "female": {
+                "money": -2,
+                "affection": 5,
+                "health": -2
+              }
+            }
+          },
+          {
+            "text": "把握机会，相信关系能经受考验",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": 4,
+                "health": -1
+              },
+              "female": {
+                "money": 12,
+                "affection": 4,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event9",
+        "title": "情感需求",
+        "description": "你感到他最近不够关心你，你在考虑如何表达自己的情感需求。",
+        "special": false,
+        "options": [
+          {
+            "text": "坦诚地表达你的感受和需求",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 7,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 8,
+                "health": 2
+              }
+            }
+          },
+          {
+            "text": "通过行动暗示，期待他能察觉",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "调整自己的期望，给他更多空间",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event5",
+        "title": "吵架后的和解",
+        "description": "你们因为一些小事发生了争吵，现在需要解决这个问题。",
+        "special": false,
+        "options": [
+          {
+            "text": "主动道歉，承认自己的错误",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 7,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "找一个中立的场合坐下来谈",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 6,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "给彼此一些空间，等情绪平复",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 2
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event2",
+        "title": "家人介绍",
+        "description": "你的家人想见见他，邀请他参加家庭聚餐。",
+        "special": false,
+        "options": [
+          {
+            "text": "正式介绍他为你的男朋友",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 9,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 7,
+                "health": -2
+              }
+            }
+          },
+          {
+            "text": "以朋友的身份介绍，减轻压力",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "婉拒这次邀请，认为时机尚早",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2_event3",
+        "title": "关心健康",
+        "description": "他最近因为忙碌而有些忽视健康，看起来很疲惫。",
+        "special": false,
+        "options": [
+          {
+            "text": "准备营养餐为他补充能量",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 8,
+                "health": 5
+              },
+              "female": {
+                "money": -3,
+                "affection": 5,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "提醒他注意休息，保持健康",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": 2
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "认为他会自己处理好身体问题",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 1,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 1,
+                "health": 0
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "stage3": {
+    "male": [
+      {
+        "id": "m3_event1",
+        "title": "求婚计划",
+        "description": "你决定向她求婚，正在考虑如何安排这个重要时刻。",
+        "special": true,
+        "options": [
+          {
+            "text": "在豪华餐厅安排一场盛大的求婚",
+            "effects": {
+              "male": {
+                "money": -15,
+                "affection": 10,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": 15,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "在你们第一次相遇的地方求婚",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 12,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 12,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "在家中布置温馨环境求婚",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 8,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 10,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event6",
+        "title": "家庭装修",
+        "description": "你们开始考虑装修新家，需要做出一些关于风格和预算的决定。",
+        "special": true,
+        "options": [
+          {
+            "text": "投入大量资金打造豪华舒适的家",
+            "effects": {
+              "male": {
+                "money": -18,
+                "affection": 8,
+                "health": 4
+              },
+              "female": {
+                "money": 0,
+                "affection": 10,
+                "health": 3
+              }
+            }
+          },
+          {
+            "text": "选择实用性强且经济的装修方案",
+            "effects": {
+              "male": {
+                "money": -7,
+                "affection": 5,
+                "health": 2
+              },
+              "female": {
+                "money": 0,
+                "affection": 6,
+                "health": 2
+              }
+            }
+          },
+          {
+            "text": "亲自参与部分装修工作以节省开支",
+            "effects": {
+              "male": {
+                "money": -4,
+                "affection": 4,
+                "health": -3
+              },
+              "female": {
+                "money": 0,
+                "affection": 7,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event7",
+        "title": "工作与家庭",
+        "description": "你面临一个重要的工作机会，但可能需要更多时间投入，影响家庭生活。",
+        "special": false,
+        "options": [
+          {
+            "text": "接受机会，并承诺平衡工作与家庭",
+            "effects": {
+              "male": {
+                "money": 8,
+                "affection": 3,
+                "health": -3
+              },
+              "female": {
+                "money": 0,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "与伴侣商量，根据家庭需求做决定",
+            "effects": {
+              "male": {
+                "money": 4,
+                "affection": 8,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 10,
+                "health": 2
+              }
+            }
+          },
+          {
+            "text": "婉拒机会，将家庭放在首位",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 10,
+                "health": 4
+              },
+              "female": {
+                "money": 0,
+                "affection": 12,
+                "health": 3
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event4",
+        "title": "创业机遇",
+        "description": "你收到了一个朋友的创业邀请，这可能是一个改变财务状况的机会。",
+        "special": false,
+        "options": [
+          {
+            "text": "辞去当前工作，全身心投入创业",
+            "effects": {
+              "male": {
+                "money": -8,
+                "affection": 0,
+                "health": -3
+              },
+              "female": {
+                "money": 0,
+                "affection": -2,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "保留当前工作，业余时间参与创业",
+            "effects": {
+              "male": {
+                "money": 5,
+                "affection": -2,
+                "health": -4
+              },
+              "female": {
+                "money": 0,
+                "affection": -3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "只投资一部分资金，不参与日常运营",
+            "effects": {
+              "male": {
+                "money": 9,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event8",
+        "title": "关系危机",
+        "description": "你们的关系出现了一些问题，彼此之间的沟通减少，亲密感降低。",
+        "special": true,
+        "options": [
+          {
+            "text": "主动寻求专业关系咨询",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 12,
+                "health": 3
+              },
+              "female": {
+                "money": 0,
+                "affection": 15,
+                "health": 4
+              }
+            }
+          },
+          {
+            "text": "安排一次深入的沟通，解决问题",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 8,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 9,
+                "health": 2
+              }
+            }
+          },
+          {
+            "text": "送礼物表达爱意，但避免深入讨论",
+            "effects": {
+              "male": {
+                "money": -6,
+                "affection": 4,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 5,
+                "health": -1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event10",
+        "title": "周年纪念",
+        "description": "你们的婚姻即将迎来一个重要的周年纪念日。",
+        "special": true,
+        "options": [
+          {
+            "text": "精心策划一场豪华的纪念庆典",
+            "effects": {
+              "male": {
+                "money": -15,
+                "affection": 15,
+                "health": -1
+              },
+              "female": {
+                "money": 0,
+                "affection": 16,
+                "health": 3
+              }
+            }
+          },
+          {
+            "text": "安排一次二人世界的私密旅行",
+            "effects": {
+              "male": {
+                "money": -10,
+                "affection": 12,
+                "health": 4
+              },
+              "female": {
+                "money": 0,
+                "affection": 13,
+                "health": 5
+              }
+            }
+          },
+          {
+            "text": "在家中准备一顿特别的晚餐",
+            "effects": {
+              "male": {
+                "money": -4,
+                "affection": 8,
+                "health": 2
+              },
+              "female": {
+                "money": 0,
+                "affection": 9,
+                "health": 2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event9",
+        "title": "未来规划",
+        "description": "你们需要做出一个关于未来生活地点的重要决定。",
+        "special": false,
+        "options": [
+          {
+            "text": "选择搬到更好的城市发展",
+            "effects": {
+              "male": {
+                "money": -10,
+                "affection": 5,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": -2
+              }
+            }
+          },
+          {
+            "text": "留在熟悉的城市，靠近亲友",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": 6,
+                "health": 3
+              },
+              "female": {
+                "money": 0,
+                "affection": 8,
+                "health": 3
+              }
+            }
+          },
+          {
+            "text": "考虑在郊区购买更大的房子",
+            "effects": {
+              "male": {
+                "money": -15,
+                "affection": 7,
+                "health": 4
+              },
+              "female": {
+                "money": 0,
+                "affection": 9,
+                "health": 5
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event5",
+        "title": "财务规划",
+        "description": "随着关系的深入，你们需要对未来的财务进行规划。",
+        "special": false,
+        "options": [
+          {
+            "text": "提议合并财务，共同管理收支",
+            "effects": {
+              "male": {
+                "money": 6,
+                "affection": 6,
+                "health": 0
+              },
+              "female": {
+                "money": 6,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "建立共同账户但保留部分个人财务",
+            "effects": {
+              "male": {
+                "money": 4,
+                "affection": 4,
+                "health": 1
+              },
+              "female": {
+                "money": 4,
+                "affection": 6,
+                "health": 1
+              }
+            }
+          },
+          {
+            "text": "保持完全独立的财务管理",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": -1,
+                "health": 2
+              },
+              "female": {
+                "money": 2,
+                "affection": -2,
+                "health": 2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event2",
+        "title": "家庭规划",
+        "description": "你们进入了更稳定的关系阶段，开始考虑是否要组建家庭。",
+        "special": false,
+        "options": [
+          {
+            "text": "表达想要孩子的愿望，积极准备",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 10,
+                "health": -2
+              },
+              "female": {
+                "money": -5,
+                "affection": 12,
+                "health": -4
+              }
+            }
+          },
+          {
+            "text": "提议先享受二人世界一段时间",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": 7,
+                "health": 1
+              },
+              "female": {
+                "money": 2,
+                "affection": 6,
+                "health": 2
+              }
+            }
+          },
+          {
+            "text": "表达对养宠物代替孩子的想法",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": -2,
+                "affection": 6,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "m3_event3",
+        "title": "投资机会",
+        "description": "你遇到了一个有潜力的投资机会，可能会影响你们的财务状况。",
+        "special": false,
+        "options": [
+          {
+            "text": "投入大量资金进行高风险投资",
+            "effects": {
+              "male": {
+                "money": 12,
+                "affection": -2,
+                "health": -2
+              },
+              "female": {
+                "money": 0,
+                "affection": -3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "进行适度的稳健投资",
+            "effects": {
+              "male": {
+                "money": 7,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "咨询专业意见后再做决定",
+            "effects": {
+              "male": {
+                "money": 3,
+                "affection": 3,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 4,
+                "health": 0
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "female": [
+      {
+        "id": "f3_event1",
+        "title": "婚礼筹备",
+        "description": "婚期临近，你需要做出一些关于婚礼的决定。",
+        "special": true,
+        "options": [
+          {
+            "text": "举办一场豪华的大型婚礼",
+            "effects": {
+              "male": {
+                "money": -15,
+                "affection": 8,
+                "health": -2
+              },
+              "female": {
+                "money": -15,
+                "affection": 10,
+                "health": -3
+              }
+            }
+          },
+          {
+            "text": "选择一个简单但精致的小型婚礼",
+            "effects": {
+              "male": {
+                "money": -8,
+                "affection": 10,
+                "health": 0
+              },
+              "female": {
+                "money": -8,
+                "affection": 12,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "只邀请最亲近的人举行私密婚礼",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 7,
+                "health": 2
+              },
+              "female": {
+                "money": -5,
+                "affection": 8,
+                "health": 2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event6",
+        "title": "健康危机",
+        "description": "你的伴侣最近出现了一些健康问题，需要更多关注和照顾。",
+        "special": false,
+        "options": [
+          {
+            "text": "减少工作时间，全心照顾他的健康",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 12,
+                "health": 8
+              },
+              "female": {
+                "money": -8,
+                "affection": 6,
+                "health": -3
+              }
+            }
+          },
+          {
+            "text": "寻求专业医疗服务和家庭帮助",
+            "effects": {
+              "male": {
+                "money": -5,
+                "affection": 8,
+                "health": 6
+              },
+              "female": {
+                "money": -5,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "鼓励他保持积极心态，自己适度调整",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": 3
+              },
+              "female": {
+                "money": -2,
+                "affection": 4,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event7",
+        "title": "社区活动",
+        "description": "你被邀请参与一个社区公益项目，这可能会提升你们的社会声誉。",
+        "special": false,
+        "options": [
+          {
+            "text": "全力投入公益活动，带动伴侣一起参与",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 7,
+                "health": 2
+              },
+              "female": {
+                "money": -2,
+                "affection": 8,
+                "health": -2
+              }
+            }
+          },
+          {
+            "text": "在不影响家庭生活的前提下适度参与",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": 1
+              },
+              "female": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "捐款支持但不亲自参与活动",
+            "effects": {
+              "male": {
+                "money": -4,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": -4,
+                "affection": 3,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event4",
+        "title": "升职机会",
+        "description": "公司内部出现了一个高级职位空缺，你有机会竞争这个职位。",
+        "special": false,
+        "options": [
+          {
+            "text": "积极准备竞争材料，争取升职",
+            "effects": {
+              "male": {
+                "money": 2,
+                "affection": -2,
+                "health": 0
+              },
+              "female": {
+                "money": 12,
+                "affection": -1,
+                "health": -3
+              }
+            }
+          },
+          {
+            "text": "和伴侣商量，平衡职业与家庭需求",
+            "effects": {
+              "male": {
+                "money": 1,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": 6,
+                "affection": 4,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "放弃这次机会，等待更合适的时机",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 3,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 2,
+                "health": 2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event8",
+        "title": "个人成长",
+        "description": "你有机会参加一个自我提升的培训课程，但需要一段时间的投入。",
+        "special": false,
+        "options": [
+          {
+            "text": "全力投入自我提升，寻求家人支持",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              },
+              "female": {
+                "money": 5,
+                "affection": 4,
+                "health": 6
+              }
+            }
+          },
+          {
+            "text": "在不影响家庭的前提下适度学习",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 8,
+                "health": 1
+              },
+              "female": {
+                "money": 2,
+                "affection": 7,
+                "health": 3
+              }
+            }
+          },
+          {
+            "text": "放弃这次机会，优先考虑家庭需求",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 10,
+                "health": 0
+              },
+              "female": {
+                "money": 0,
+                "affection": 3,
+                "health": -2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event10",
+        "title": "家庭责任",
+        "description": "你需要照顾生病的父母，这会影响你和伴侣的生活。",
+        "special": true,
+        "options": [
+          {
+            "text": "邀请父母搬来同住，全力照顾",
+            "effects": {
+              "male": {
+                "money": -7,
+                "affection": 8,
+                "health": -2
+              },
+              "female": {
+                "money": -5,
+                "affection": 10,
+                "health": -4
+              }
+            }
+          },
+          {
+            "text": "安排专业护理，定期探望",
+            "effects": {
+              "male": {
+                "money": -12,
+                "affection": 10,
+                "health": 0
+              },
+              "female": {
+                "money": -4,
+                "affection": 8,
+                "health": 2
+              }
+            }
+          },
+          {
+            "text": "与兄弟姐妹分担照顾责任",
+            "effects": {
+              "male": {
+                "money": -3,
+                "affection": 8,
+                "health": -1
+              },
+              "female": {
+                "money": -2,
+                "affection": 7,
+                "health": -2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event9",
+        "title": "生活方式改变",
+        "description": "你开始关注健康生活方式，想要在家庭中推行一些健康习惯。",
+        "special": false,
+        "options": [
+          {
+            "text": "全面改变饮食和生活习惯",
+            "effects": {
+              "male": {
+                "money": -4,
+                "affection": 3,
+                "health": 7
+              },
+              "female": {
+                "money": -3,
+                "affection": 2,
+                "health": 10
+              }
+            }
+          },
+          {
+            "text": "渐进式引入健康习惯，尊重伴侣意见",
+            "effects": {
+              "male": {
+                "money": -2,
+                "affection": 8,
+                "health": 4
+              },
+              "female": {
+                "money": -2,
+                "affection": 6,
+                "health": 6
+              }
+            }
+          },
+          {
+            "text": "专注于自己的健康，不强求伴侣改变",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 5,
+                "health": 0
+              },
+              "female": {
+                "money": -1,
+                "affection": 3,
+                "health": 8
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event5",
+        "title": "人脉资源",
+        "description": "你结识了一些有影响力的人脉，这可能为你和伴侣带来事业发展机会。",
+        "special": false,
+        "options": [
+          {
+            "text": "积极拓展人脉，寻求合作机会",
+            "effects": {
+              "male": {
+                "money": 4,
+                "affection": 0,
+                "health": 0
+              },
+              "female": {
+                "money": 8,
+                "affection": 0,
+                "health": -2
+              }
+            }
+          },
+          {
+            "text": "为伴侣引荐有价值的商业联系",
+            "effects": {
+              "male": {
+                "money": 10,
+                "affection": 8,
+                "health": 0
+              },
+              "female": {
+                "money": 2,
+                "affection": 5,
+                "health": 0
+              }
+            }
+          },
+          {
+            "text": "保持社交礼节但不过度利用关系",
+            "effects": {
+              "male": {
+                "money": 1,
+                "affection": 3,
+                "health": 1
+              },
+              "female": {
+                "money": 3,
+                "affection": 2,
+                "health": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event2",
+        "title": "事业转折",
+        "description": "一个重要的职业发展机会出现在面前，但可能需要更多的时间和精力投入。",
+        "special": false,
+        "options": [
+          {
+            "text": "全力把握机会，暂时降低对关系的投入",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": -3,
+                "health": 0
+              },
+              "female": {
+                "money": 8,
+                "affection": -2,
+                "health": -3
+              }
+            }
+          },
+          {
+            "text": "在工作和关系之间寻求平衡",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 4,
+                "affection": 3,
+                "health": -1
+              }
+            }
+          },
+          {
+            "text": "放弃机会，优先考虑稳定的关系",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 6,
+                "health": 0
+              },
+              "female": {
+                "money": -2,
+                "affection": 5,
+                "health": 2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f3_event3",
+        "title": "副业尝试",
+        "description": "你发现一个可以利用自己技能发展副业的机会，可能会带来额外收入。",
+        "special": false,
+        "options": [
+          {
+            "text": "全力投入发展副业",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": -4,
+                "health": 0
+              },
+              "female": {
+                "money": 10,
+                "affection": -2,
+                "health": -4
+              }
+            }
+          },
+          {
+            "text": "在不影响正职和关系的前提下适度发展",
+            "effects": {
+              "male": {
+                "money": 0,
+                "affection": 2,
+                "health": 0
+              },
+              "female": {
+                "money": 5,
+                "affection": 2,
+                "health": -2
+              }
+            }
+          },
+          {
+            "text": "邀请伴侣一起参与这个项目",
+            "effects": {
+              "male": {
+                "money": 3,
+                "affection": 5,
+                "health": -1
+              },
+              "female": {
+                "money": 6,
+                "affection": 4,
+                "health": -2
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

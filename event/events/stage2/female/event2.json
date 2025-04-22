@@ -7,23 +7,47 @@
     {
       "text": "正式介绍他为你的男朋友",
       "effects": {
-        "male": {"money": 0, "affection": 9, "health": -1},
-        "female": {"money": 0, "affection": 7, "health": -2}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": -1
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": -2
+        }
       }
     },
     {
       "text": "以朋友的身份介绍，减轻压力",
       "effects": {
-        "male": {"money": 0, "affection": 4, "health": 0},
-        "female": {"money": 0, "affection": 4, "health": -1}
+        "male": {
+          "money": 0,
+          "affection": 4,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 4,
+          "health": -1
+        }
       }
     },
     {
       "text": "婉拒这次邀请，认为时机尚早",
       "effects": {
-        "male": {"money": 0, "affection": 2, "health": 0},
-        "female": {"money": 0, "affection": 2, "health": 0}
+        "male": {
+          "money": 0,
+          "affection": 2,
+          "health": 0
+        },
+        "female": {
+          "money": 0,
+          "affection": 2,
+          "health": 0
+        }
       }
     }
   ]
-} 
+}
