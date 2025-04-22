@@ -5,6 +5,7 @@ import os
 from datetime import datetime, timedelta
 import secrets
 import sys
+import time
 
 # 获取当前文件的目录
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -15,7 +16,12 @@ sys.path.insert(0, os.path.dirname(base_dir))
 from game.story_generator import generate_love_story
 
 app = Flask(__name__)
-app.secret_key = secrets.token_hex(16)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(16))
+
+# 检查是否在Vercel环境中运行
+is_vercel = os.environ.get("VERCEL") == "1"
+if is_vercel:
+    print("应用在Vercel环境中运行，将进行相应优化")
 
 # 使用服务器会话存储游戏状态，而不是cookie
 def get_game_state():
@@ -314,13 +320,21 @@ def reset_game():
 
 @app.route('/generate_story', methods=['POST'])
 def generate_story_api():
+    start_time = time.time()
     game_state = get_game_state()
     if not game_state:
         return jsonify({"status": "error", "message": "游戏未初始化"}), 400
     
     try:
+        # 记录请求时间
+        print(f"开始生成故事，时间: {datetime.now()}")
+        
         # 生成故事
         story = generate_love_story(game_state)
+        
+        # 记录完成时间
+        end_time = time.time()
+        print(f"故事生成完成，耗时: {end_time - start_time:.2f}秒")
         
         # 将故事保存到游戏状态中
         if 'story' not in game_state:
@@ -336,7 +350,8 @@ def generate_story_api():
             "stage": current_stage
         })
     except Exception as e:
-        print(f"生成故事时出错: {str(e)}")
+        end_time = time.time()
+        print(f"生成故事失败，耗时: {end_time - start_time:.2f}秒, 错误: {str(e)}")
         return jsonify({"status": "error", "message": f"生成故事失败: {str(e)}"}), 500
 
 if __name__ == '__main__':
