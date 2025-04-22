@@ -50,15 +50,15 @@ def init_game(male_name="A", female_name="B"):
     return {
         "male": {
             "name": male_name,
-            "money": 20,
+            "money": 40,
             "affection": 5,
-            "health": 60
+            "health": 80
         },
         "female": {
             "name": female_name,
-            "money": 20,
+            "money": 40,
             "affection": 5,
-            "health": 60
+            "health": 80
         },
         "stage": 1,
         "events_happened": [],
