@@ -3,13 +3,19 @@ import json
 import os
 import time
 import concurrent.futures
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List, Union, Tuple
+import logging
+import traceback
 
 # 从环境变量获取API密钥
-api_key = os.environ.get("DEEPSEEK_API_KEY", "sk-c15d06213b87484dbc9003d144f74e08")
+api_key = os.environ.get("DASHSCOPE_API_KEY", "sk-c15d06213b87484dbc9003d144f74e08")
+# 模型名称
+model_name = os.environ.get("DASHSCOPE_MODEL", "qwen-turbo")  # 阿里云百炼模型
 
 # 在Vercel环境中使用简化的超时设置
-VERCEL_TIMEOUT = 5.0  # Vercel函数有10秒的执行限制，我们设置为5秒留出余量
+VERCEL_TIMEOUT = 8.0  # Vercel函数有10秒的执行限制，我们设置为8秒以增加成功率
+DEFAULT_TIMEOUT = 30.0  # 非Vercel环境中使用更长的超时时间
+STAGE3_TIMEOUT = 60.0  # 第三阶段使用更长的超时时间
 
 # 全局客户端
 global_client = None
@@ -30,190 +36,898 @@ def is_vercel_env() -> bool:
     return os.environ.get("VERCEL") == "1" or os.environ.get("VERCEL_ENV") is not None
 
 # 故事生成功能的回退方案
-def generate_fallback_story(male_name: str, female_name: str, relationship: str, stage: int) -> str:
-    """
-    当API调用失败时生成一个简单的故事
+def generate_fallback_story(
+    male_name: str, 
+    female_name: str, 
+    stage: int, 
+    relationship: str,
+    events: List[Dict]
+) -> str:
+    """生成后备故事，当API调用失败时使用
     
     Args:
         male_name: 男主角名字
         female_name: 女主角名字
-        relationship: 当前关系
-        stage: 当前阶段
+        stage: 当前游戏阶段
+        relationship: 角色关系状态
+        events: 事件列表
         
     Returns:
-        生成的故事文本
+        生成的简单故事文本
     """
-    if stage == 1:  # 朋友阶段
-        return f"{male_name}和{female_name}经过一系列的相遇和互动，从最初的陌生关系逐渐建立了信任。他们一起度过了许多美好时光，共同克服了一些小困难，这使他们的友谊更加牢固。现在，他们已经成为了彼此信赖的朋友，期待着未来有更多共同的经历和回忆。"
-    elif stage == 2:  # 恋人阶段
-        return f"随着时间的推移，{male_name}和{female_name}的友谊悄然发生了变化。他们开始期待每次见面，心跳也因对方的一个微笑而加速。在一次偶然的机会，{male_name}鼓起勇气表达了自己的心意，而{female_name}也回应了这份感情。如今，他们已经成为恋人，彼此的生活因对方而变得更加丰富多彩。"
-    elif stage == 3:  # 夫妻阶段
-        return f"在相恋一段时间后，{male_name}和{female_name}决定携手迈向人生的新阶段。他们经历了甜蜜的求婚，筹备了温馨的婚礼，最终在亲友的祝福中成为了夫妻。现在的他们，面对生活的挑战时更加坚定，因为知道无论发生什么，都有对方在身边相伴。这段婚姻是他们爱情故事的新篇章，而不是结束。"
-    else:
-        return f"{male_name}和{female_name}的故事正在继续发展，充满了无限可能。他们一起经历了许多事情，这些经历让他们更加了解彼此，也让他们的关系更进一步。无论未来如何，这段关系都将是他们人生中重要的一部分。"
+    logging.info("使用后备故事生成方法")
+    
+    # 根据当前阶段生成简单的故事模板
+    stage_templates = {
+        1: f"{male_name}和{female_name}初次相遇，他们开始了解彼此，建立了初步的联系。",
+        2: f"{male_name}和{female_name}在共同经历中逐渐熟悉，关系逐渐加深。",
+        3: f"{male_name}和{female_name}的关系面临一些挑战，但他们试图共同解决问题。"
+    }
+    
+    # 获取当前阶段的基本故事
+    base_story = stage_templates.get(stage, f"{male_name}和{female_name}继续他们的故事。")
+    
+    # 添加事件描述
+    event_descriptions = []
+    for event in events:
+        if isinstance(event, dict) and 'description' in event:
+            event_descriptions.append(event['description'])
+    
+    events_text = ""
+    if event_descriptions:
+        events_text = "\n\n在这个阶段中，发生了以下事件：\n" + "\n".join([f"- {desc}" for desc in event_descriptions])
+    
+    # 根据关系状态添加结尾
+    endings = {
+        "陌生人": f"目前，{male_name}和{female_name}还只是普通的认识关系，他们之间的故事才刚刚开始。",
+        "朋友": f"{male_name}和{female_name}已经成为了好朋友，他们享受彼此的陪伴，期待着未来的发展。",
+        "恋人": f"{male_name}和{female_name}已经确认了彼此的感情，他们的爱情故事正在甜蜜地发展着。"
+    }
+    
+    ending = endings.get(relationship, f"{male_name}和{female_name}继续着他们的故事。")
+    
+    # 组合完整故事
+    full_story = f"{base_story}{events_text}\n\n{ending}"
+    
+    return full_story
 
-# 安全的API调用函数
-def api_call_with_timeout(messages: list, model: str = "deepseek-chat", timeout: float = VERCEL_TIMEOUT) -> Optional[str]:
+# 添加API调用优化函数
+def api_call_with_timeout(messages: List[Dict[str, str]], timeout: Optional[int] = None) -> Optional[str]:
     """
-    安全地调用API，包含超时控制和错误处理
+    使用超时控制安全地调用API
     
     Args:
         messages: 消息列表
-        model: 模型名称
-        timeout: 超时时间(秒)
+        timeout: 超时时间(秒)，如果为None则根据环境和阶段自动设置
         
     Returns:
-        生成的文本，如果失败则返回None
-    """
-    def call_api():
-        try:
-            client = get_client()
-            response = client.chat.completions.create(
-                model=model,
-                messages=messages,
-                temperature=0.7,
-                max_tokens=400  # 减少token数量，加速生成
-            )
-            return response.choices[0].message.content
-        except Exception as e:
-            print(f"API调用内部错误: {e}")
-            return None
-    
-    # 使用并发执行器和超时控制
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        future = executor.submit(call_api)
-        try:
-            return future.result(timeout=timeout)
-        except concurrent.futures.TimeoutError:
-            print(f"API调用超时({timeout}秒)")
-            return None
-        except Exception as e:
-            print(f"执行器异常: {e}")
-            return None
-
-def generate_love_story(game_state: Dict[str, Any]) -> str:
-    """
-    根据游戏状态生成爱情故事
-    
-    Args:
-        game_state: 游戏状态字典
-        
-    Returns:
-        生成的爱情故事文本
+        生成的内容或None(如果调用失败)
     """
     start_time = time.time()
     
-    try:
-        # 提取角色信息
-        male_name = game_state["male"]["name"]
-        female_name = game_state["female"]["name"]
-        relationship = game_state["relationship"]
-        
-        # 提取属性值
-        male_money = game_state["male"]["money"]
-        male_affection = game_state["male"]["affection"]
-        male_health = game_state["male"]["health"]
-        
-        female_money = game_state["female"]["money"]
-        female_affection = game_state["female"]["affection"]
-        female_health = game_state["female"]["health"]
-        
-        # 确定当前阶段
-        stage = game_state["stage"] - 1  # 因为显示故事时，阶段已经+1了
-        
-        # 阶段对应的关系变化描述
-        stage_descriptions = {
-            1: f"他们从陌生人变成了朋友，建立了信任和友谊的纽带",
-            2: f"他们从朋友关系发展为恋人，感情逐渐升温",
-            3: f"他们从恋人关系迈入婚姻，开始人生新的篇章"
-        }
-        stage_text = stage_descriptions.get(stage, "他们的关系正在发展")
-        
-        # 检查是否在Vercel环境中，如果是则直接使用回退方案
+    # 确定是否是第三阶段(通过检查消息内容)
+    is_third_stage = any("从恋人关系迈入婚姻" in msg.get("content", "") 
+                         for msg in messages if msg.get("role") == "user")
+    
+    # 如果未指定超时，根据环境和阶段设置默认值
+    if timeout is None:
+        # Vercel环境下使用更短的超时
         if is_vercel_env():
-            print("在Vercel环境中使用预设故事模板")
-            story = generate_fallback_story(male_name, female_name, relationship, stage)
-            end_time = time.time()
-            print(f"故事生成完成，总耗时: {end_time - start_time:.2f}秒")
-            return story
-        
-        # 提取当前阶段的事件历史，确保只关注当前阶段的事件
-        events = []
-        for event in game_state.get("events_happened", []):
-            # 筛选当前阶段的事件
-            if len(events) < 10:  # 只考虑最近的10个事件，即当前阶段的事件
-                events.append(event)
-        
-        # 构建事件描述，包含事件标题、选择和效果
-        events_text = ""
-        for event in events:
-            character = male_name if event["character"] == "male" else female_name
-            event_title = event.get("title", "某事件")
-            event_option = event.get("option_chosen", "做出了选择")
-            events_text += f"- {character}遇到了\"{event_title}\"，选择了\"{event_option}\"\n"
-        
-        # 为不同阶段设置不同的提示词模板
-        stage_prompts = {
-            1: f"""请创作一个关于{male_name}和{female_name}如何从陌生人变成朋友的故事。
-故事应该反映出他们初次相识、相互了解并建立友谊的过程。
-请着重描写他们共同经历的事件如何帮助他们建立信任，以及友情如何逐渐深厚。
-故事应该温馨、有趣，展现友谊的珍贵。""",
-            
-            2: f"""请创作一个关于{male_name}和{female_name}从朋友发展为恋人的浪漫故事。
-故事应该描写他们逐渐意识到对彼此的情感不仅仅是友情，以及他们如何跨越友谊与爱情的界限。
-请包含一些感人的告白或特别的时刻，展现两人情感升温的过程。
-故事应该充满浪漫气息，但也要符合他们之前建立的友谊基础。""",
-            
-            3: f"""请创作一个关于{male_name}和{female_name}从恋人转变为夫妻的温馨故事。
-故事应该描述他们如何决定共度余生，包括求婚、婚礼筹备或新婚生活的甜蜜片段。
-请强调他们如何一起规划未来，以及婚姻如何让他们的爱情更加坚固。
-故事应该温暖、感人，展现成熟爱情和承诺的美好。"""
-        }
-        
-        stage_prompt = stage_prompts.get(stage, f"请创作一个关于{male_name}和{female_name}关系发展的故事")
-        
-        # 构建系统和用户消息
-        system_message = {"role": "system", "content": "你是一个专业的爱情故事作家，擅长创作浪漫、感人的故事。请根据提供的信息创作一个短篇爱情故事，确保故事与两位主角的属性和经历相符。"}
-        
-        user_content = f"""请根据以下信息为我创作一个浪漫、生动的短篇爱情故事，长度控制在300字以内：
-
-主角：{male_name}（男）和{female_name}（女）
-当前关系：{relationship}
-关系变化：{stage_text}
-
-{stage_prompt}
-
-主要事件历史（请参考这些事件创作故事情节）：
-{events_text}
-
-当前属性（请将这些属性反映在故事中）：
-{male_name}的属性：金钱 {male_money}，好感度 {male_affection}，健康度 {male_health}
-{female_name}的属性：金钱 {female_money}，好感度 {female_affection}，健康度 {female_health}
-
-重要提示：请确保故事是全新的，不要重复之前阶段的情节。根据当前阶段和关系创作独特的内容。
-"""
-        
-        user_message = {"role": "user", "content": user_content}
-        messages = [system_message, user_message]
-        
+            timeout = 15 if not is_third_stage else 20
+        else:
+            timeout = 20 if not is_third_stage else 30
+    
+    print(f"使用超时设置: {timeout}秒")
+    
+    # 使用线程池执行器来处理超时
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        # 提交API调用任务
+        future = executor.submit(_call_api, messages)
         try:
-            # 调用API生成故事，使用安全的调用方法
-            story = api_call_with_timeout(messages)
-            
-            # 如果API调用失败，使用回退方案
-            if not story:
-                print("API调用未返回结果，使用回退方案")
-                story = generate_fallback_story(male_name, female_name, relationship, stage)
-            
-            end_time = time.time()
-            print(f"故事生成完成，总耗时: {end_time - start_time:.2f}秒")
-            return story
-            
-        except Exception as api_error:
-            print(f"API调用错误: {api_error}")
-            return generate_fallback_story(male_name, female_name, relationship, stage)
-            
+            # 等待结果，设置超时
+            return future.result(timeout=timeout)
+        except concurrent.futures.TimeoutError:
+            print(f"API调用超时(超过{timeout}秒)")
+            return None
+        except Exception as e:
+            print(f"API调用执行错误: {e}")
+            return None
+
+def _call_api(messages: List[Dict[str, str]]) -> Optional[str]:
+    """
+    实际执行API调用
+    
+    Args:
+        messages: 消息列表
+        
+    Returns:
+        生成的内容或None(如果调用失败)
+    """
+    start_time = time.time()
+    client = get_client()
+    
+    try:
+        # 调用API
+        response = client.chat.completions.create(
+            model="qwen-max",
+            messages=messages,
+            temperature=0.7,
+            max_tokens=1500,  # 固定token限制
+            top_p=0.8,
+            frequency_penalty=0.5
+        )
+        
+        # 处理响应
+        end_time = time.time()
+        content = response.choices[0].message.content
+        
+        # 计算token使用量
+        prompt_tokens = response.usage.prompt_tokens
+        completion_tokens = response.usage.completion_tokens
+        total_tokens = response.usage.total_tokens
+        
+        print(f"API调用成功，耗时: {end_time - start_time:.2f}秒")
+        print(f"Token使用: 输入={prompt_tokens}, 输出={completion_tokens}, 总计={total_tokens}")
+        
+        return content
     except Exception as e:
         end_time = time.time()
-        print(f"故事生成过程中出现错误: {e}, 耗时: {end_time - start_time:.2f}秒")
-        return "由于技术原因，无法生成故事。但这并不影响您的游戏体验，请继续游戏。" 
+        print(f"API调用失败: {e}, 耗时: {end_time - start_time:.2f}秒")
+        return None
+
+# 处理故事内容，确保生成完整可读的故事
+def process_story_content(content: str, male_name: str, female_name: str) -> str:
+    """
+    处理故事内容，替换可能的占位符，清理特殊字符
+    
+    Args:
+        content: 原始故事内容
+        male_name: 男主角名字
+        female_name: 女主角名字
+        
+    Returns:
+        处理后的故事内容
+    """
+    if not content:
+        return content
+    
+    # 替换可能的占位符（A和B, 男主和女主等）
+    replacements = {
+        "A": male_name,
+        "B": female_name,
+        "男主": male_name,
+        "女主": female_name,
+        "男主角": male_name,
+        "女主角": female_name,
+        "[男主]": male_name,
+        "[女主]": female_name,
+        "{男主}": male_name,
+        "{女主}": female_name
+    }
+    
+    for placeholder, name in replacements.items():
+        content = content.replace(placeholder, name)
+    
+    # 移除特殊非中文标点符号
+    special_chars = ["\u200b", "\u200c", "\u200d", "\u2060", "\ufeff"]
+    for char in special_chars:
+        content = content.replace(char, "")
+    
+    # 移除故事阶段标记和其他不需要的格式
+    content = content.replace("【第1阶段的故事】", "").replace("【第2阶段的故事】", "").replace("【第3阶段的故事】", "")
+    content = content.replace("【第一阶段的故事】", "").replace("【第二阶段的故事】", "").replace("【第三阶段的故事】", "")
+    
+    # 确保段落之间有适当的间隔
+    content = content.replace("\n\n\n", "\n\n").strip()
+    
+    return content
+
+def generate_love_story(game_state: Dict[str, Any], forget_previous_content: bool = False) -> str:
+    """生成爱情故事
+    
+    Args:
+        game_state: 游戏状态
+        forget_previous_content: 是否忘记之前的内容
+        
+    Returns:
+        生成的爱情故事
+    """
+    start_time = time.time()
+    
+    # 检查游戏状态是否有效
+    if not game_state:
+        logging.error("游戏状态无效")
+        return "游戏状态无效，无法生成故事。"
+    
+    # 提取角色信息
+    male_info = extract_character_info(game_state, "male")
+    female_info = extract_character_info(game_state, "female")
+    
+    male_name = male_info["name"]
+    female_name = female_info["name"]
+    
+    # 计算平均好感度
+    avg_affection = (male_info["affection"] + female_info["affection"]) / 2
+    relationship_status = get_relationship_status(avg_affection)
+    
+    logging.info(f"生成爱情故事 - 阶段: {game_state.get('stage', 1)}, 关系: {relationship_status}, "
+                f"男方好感度: {male_info['affection']}, 女方好感度: {female_info['affection']}")
+    
+    # 获取事件
+    events = get_current_stage_events(game_state) if forget_previous_content else get_all_events(game_state)
+    
+    # 根据关系状态设置严格的情节约束
+    relationship_constraints = {
+        "陌生人": "双方刚认识或偶遇，情节应严格限制在初次接触的好奇、礼貌交谈或试探性了解，绝对不可出现亲密互动、告白、约会等超前情节",
+        "朋友": "双方处于友谊阶段，可以有日常交往、互相帮助、轻微暧昧，但绝对不能出现表白、亲吻、牵手等亲密行为，更不能出现求婚、同居、结婚等严重超前的情节",
+        "恋人": "双方已确认恋爱关系，可以有浪漫约会、情感表达和适度的亲密互动，但不应出现求婚、结婚、同居等超前情节"
+    }
+    
+    current_constraints = relationship_constraints.get(relationship_status, "请根据当前关系状态合理设定情节")
+    
+    # 构建系统提示词
+    system_prompt = f"""你是一位优秀的言情小说作家，擅长创作晋江风格的言情故事。请根据以下信息创作一个引人入胜的爱情故事章节。
+
+故事要求：
+1. 严格遵循晋江言情小说的写作风格，包括：细腻的心理描写、恰到好处的对白、浪漫且略带戏剧性的情节发展
+2. 故事中必须包含男女主角之间微妙的情感变化和心理活动
+3. 根据两位主角的属性（金钱、健康、好感度）适当调整故事情节
+4. 男主角名字：{male_name}，女主角名字：{female_name}
+5. 【极其重要】他们当前的关系是：{relationship_status}
+6. 【关系约束】{current_constraints}
+7. 故事必须基于已发生的游戏事件，不要编造新事件
+8. 字数控制在700字以内
+9. 文风富有感染力，语言优美且富有节奏感
+10. 故事情节要符合逻辑，人物性格要前后一致
+11. 不要在故事结尾添加"【完】"或任何结束标记
+12. 不要在故事结尾添加总结段落或创作感想
+
+当前阶段：{game_state.get('stage', 1)}
+当前关系：{relationship_status}
+
+违禁情节清单：
+- 如果关系是"陌生人"：禁止出现任何亲密行为、表白、约会等超前情节
+- 如果关系是"朋友"：禁止出现表白、亲吻、牵手、求婚、同居、结婚等超前情节
+- 如果关系是"恋人"：禁止出现求婚、同居、结婚等超前情节，除非特别指示
+"""
+
+    # 构建用户提示词
+    user_prompt = f"""男主角 {male_name} 的属性：金钱 {male_info['money']}，健康 {male_info['health']}，好感度 {male_info['affection']}
+女主角 {female_name} 的属性：金钱 {female_info['money']}，健康 {female_info['health']}，好感度 {female_info['affection']}
+
+当前关系状态：{relationship_status}（请严格遵循这一关系状态，不要出现不符合关系阶段的情节）
+
+已发生的事件：
+"""
+    
+    # 添加事件描述
+    for i, event in enumerate(events):
+        if isinstance(event, dict):
+            character = event.get("character", "未知")
+            option = event.get("option", "未知")
+            effects = event.get("effects", {})
+            stage = event.get("stage", "未知")
+            
+            user_prompt += f"事件{i+1}（阶段{stage}）：{character}选择了\"{option}\"，";
+            
+            effect_descriptions = []
+            for attr, value in effects.items():
+                if attr in ["money", "health", "affection"]:
+                    direction = "增加" if value > 0 else "减少"
+                    effect_descriptions.append(f"{attr} {direction} {abs(value)}")
+            
+            if effect_descriptions:
+                user_prompt += "导致" + "，".join(effect_descriptions)
+            
+            user_prompt += "。\n"
+    
+    user_prompt += f"""
+请根据以上信息创作一个引人入胜的爱情故事章节，遵循晋江风格的言情小说写作特点。
+请特别关注两位主角之间的情感发展和微妙变化。
+故事必须基于已发生的事件，不要添加未在事件中提及的新情节。
+字数控制在700字以内。
+再次强调，故事情节必须严格符合"{relationship_status}"的关系状态，不要出现超前的情节发展。
+"""
+    
+    try:
+        client = get_client()
+        response = client.chat.completions.create(
+            model="qwen-max",  # 使用阿里云模型
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0.8,
+            max_tokens=2000,
+        )
+        story = response.choices[0].message.content
+        
+        # 记录成功信息
+        elapsed_time = time.time() - start_time
+        logging.info(f"成功生成故事，耗时 {elapsed_time:.2f} 秒，字数约 {len(story)} 字")
+        
+        return story
+    except Exception as e:
+        logging.error(f"生成故事时出错: {str(e)}")
+        return generate_fallback_story(
+            male_name=male_name,
+            female_name=female_name,
+            stage=game_state.get("stage", 1),
+            relationship=relationship_status,
+            events=events
+        )
+
+def get_relationship_status(avg_affection: float) -> str:
+    """根据平均好感度获取关系状态
+    
+    Args:
+        avg_affection: 平均好感度
+        
+    Returns:
+        关系状态: "陌生人", "朋友" 或 "恋人"
+    """
+    if avg_affection < 3:
+        return "陌生人"
+    elif avg_affection < 7:
+        return "朋友"
+    else:
+        return "恋人"
+
+def generate_bad_ending_story(game_state: Dict[str, Any]) -> str:
+    """为游戏结束生成一个不好的结局故事
+    
+    Args:
+        game_state: 游戏状态
+        
+    Returns:
+        生成的坏结局故事
+    """
+    start_time = time.time()
+    
+    # 提取角色信息
+    male_info = extract_character_info(game_state, "male")
+    female_info = extract_character_info(game_state, "female")
+    
+    male_name = male_info["name"]
+    female_name = female_info["name"]
+    
+    # 计算平均好感度
+    avg_affection = (male_info["affection"] + female_info["affection"]) / 2
+    relationship_status = get_relationship_status(avg_affection)
+    
+    # 确定失败原因
+    failure_reason = ""
+    failure_detail = ""
+    if male_info["health"] <= 0:
+        failure_reason = "健康问题"
+        failure_detail = f"{male_name}的健康状况恶化"
+    elif female_info["health"] <= 0:
+        failure_reason = "健康问题"
+        failure_detail = f"{female_name}的健康状况恶化"
+    elif male_info["money"] <= 0:
+        failure_reason = "经济压力"
+        failure_detail = f"{male_name}的经济状况陷入困境"
+    elif female_info["money"] <= 0:
+        failure_reason = "经济压力"
+        failure_detail = f"{female_name}的经济状况陷入困境"
+    elif avg_affection <= 0:
+        failure_reason = "感情破裂"
+        failure_detail = "双方感情不和，关系无法维系"
+    else:
+        failure_reason = "多种因素"
+        failure_detail = "多种因素导致关系无法继续"
+    
+    logging.info(f"生成坏结局故事 - 关系: {relationship_status}, 失败原因: {failure_reason}, 详情: {failure_detail}")
+    
+    # 获取所有事件
+    events = get_all_events(game_state)
+    
+    # 构建系统消息
+    system_message = f"""你是一位擅长创作浪漫爱情小说的AI，需要根据给定的场景和角色创作具有晋江言情小说风格的爱情故事的结局。你的任务是根据提供的游戏事件和角色情况，生成一个以"{failure_reason}"为核心的遗憾结局。
+
+故事要求：
+1. 严格使用晋江言情小说的写作风格，包括：细腻的心理描写、恰到好处的对白、略带忧伤的结局氛围
+2. 故事需基于提供的事件和角色信息，不要编造与给定信息不符的情节
+3. 男女主角的名字固定为{male_name}和{female_name}
+4. 故事必须将"{failure_reason}"作为失败的核心原因，具体表现为：{failure_detail}
+5. 故事情节必须与当前关系状态"{relationship_status}"相符合：
+   - 如果是陌生人：结局体现初步认识后无法继续发展的遗憾
+   - 如果是朋友：结局体现友情无法升华为爱情的遗憾
+   - 如果是恋人：结局体现恋爱关系面临危机或分手的痛苦
+   - 如果是夫妻：结局体现婚姻关系中的困境或挑战
+6. 字数控制在700字以内
+7. 根据当前关系（{relationship_status}）调整故事的情感基调
+8. 表现人物的细腻情感变化和心理活动，让读者感受到角色之间的情感互动
+9. 提供生动的场景描写，让故事更有画面感和代入感
+10. 使用符合当代年轻人的语言风格，要优美又不做作
+11. 确保故事情节符合逻辑，人物行为符合其性格特点
+12. 故事是遗憾的，但可以留下一丝希望或成长的意味
+13. 不要在故事结尾添加"【完】"或任何结束标记
+14. 不要在故事结尾添加总结段落或创作感想
+
+当前阶段：{game_state.get('stage', 1)}（注意：游戏只有3个阶段）
+当前关系：{relationship_status}
+失败原因：{failure_detail}"""
+
+    # 构建用户消息
+    user_message = f"""男主角 {male_name} 的属性：金钱 {male_info['money']}，健康 {male_info['health']}，好感度 {male_info['affection']}
+女主角 {female_name} 的属性：金钱 {female_info['money']}，健康 {female_info['health']}，好感度 {female_info['affection']}
+
+请根据以下事件创作一个以"{failure_reason}"为核心原因的遗憾爱情故事结局：
+"""
+
+    # 添加事件描述
+    for i, event in enumerate(events):
+        if isinstance(event, dict):
+            character = event.get("character", "未知")
+            option = event.get("option", "未知")
+            effects = event.get("effects", {})
+            stage = event.get("stage", "未知")
+            
+            user_message += f"事件{i+1}（阶段{stage}）：{character}选择了\"{option}\"，";
+            
+            effect_descriptions = []
+            for attr, value in effects.items():
+                if attr in ["money", "health", "affection"]:
+                    direction = "增加" if value > 0 else "减少"
+                    effect_descriptions.append(f"{attr} {direction} {abs(value)}")
+            
+            if effect_descriptions:
+                user_message += "导致" + "，".join(effect_descriptions)
+            
+            user_message += "。\n"
+    
+    user_message += f"""
+请根据以上信息创作一个遗憾的爱情故事结局，遵循晋江风格的言情小说写作特点。
+重点描述{failure_detail}如何导致他们的故事结束。
+故事字数控制在700字以内。
+"""
+    
+    # 调用API获取故事
+    try:
+        client = get_client()
+        response = client.chat.completions.create(
+            model="qwen-max",  # 使用阿里云模型
+            messages=[
+                {"role": "system", "content": system_message},
+                {"role": "user", "content": user_message}
+            ],
+            temperature=0.7,
+            max_tokens=2000
+        )
+        story = response.choices[0].message.content
+        
+        # 记录成功信息
+        elapsed_time = time.time() - start_time
+        logging.info(f"成功生成坏结局故事，耗时 {elapsed_time:.2f} 秒，字数约 {len(story)} 字")
+        
+        return story
+    except Exception as e:
+        logging.error(f"生成坏结局故事时出错: {e}")
+        return generate_fallback_story(
+            male_name=male_name,
+            female_name=female_name,
+            stage=game_state.get("stage", 1),
+            relationship=relationship_status,
+            events=events
+        )
+
+def generate_ongoing_story(game_state: Dict[str, Any], forget_previous_content: bool = False) -> str:
+    """生成一个进行中的爱情故事
+    
+    Args:
+        game_state: 游戏状态
+        forget_previous_content: 是否忽略之前的故事内容
+        
+    Returns:
+        生成的故事内容
+    """
+    start_time = time.time()
+    
+    # 提取角色信息
+    male_info = extract_character_info(game_state, "male")
+    female_info = extract_character_info(game_state, "female")
+    
+    male_name = male_info["name"]
+    female_name = female_info["name"]
+    
+    # 计算平均好感度
+    avg_affection = (male_info["affection"] + female_info["affection"]) / 2
+    relationship_status = get_relationship_status(avg_affection)
+    
+    current_stage = game_state.get("stage", 1)
+    logging.info(f"生成进行中的故事 - 阶段: {current_stage}, 关系: {relationship_status}")
+    
+    # 获取当前阶段的事件
+    current_stage_events = []
+    for event in game_state.get("events", []):
+        if isinstance(event, dict) and event.get("stage") == current_stage:
+            current_stage_events.append(event)
+    
+    # 获取之前的故事内容
+    previous_story = game_state.get("story", "")
+    
+    # 获取阶段描述
+    stage_description = ""
+    if current_stage == 1:
+        stage_description = "初识阶段 - 初次相遇"
+    elif current_stage == 2:
+        stage_description = "熟悉阶段 - 相互了解，建立友谊"
+    elif current_stage == 3:
+        stage_description = "恋爱阶段 - 感情升温，确认关系"
+    
+    # 根据关系状态设置严格的情节约束
+    relationship_constraints = {
+        "陌生人": "双方刚认识或偶遇，情节应限制在初次接触的好奇、礼貌交谈或试探性了解，不可出现亲密互动、告白、约会等超前情节",
+        "朋友": "双方处于友谊阶段，可以有日常交往、互相帮助、轻微暧昧，但绝对不能出现表白、亲吻、牵手等亲密行为，更不能出现求婚、同居、结婚等严重超前的情节",
+        "恋人": "双方已确认恋爱关系，可以有浪漫约会、情感表达和适度的亲密互动，但不应出现求婚、结婚、同居等超前情节"
+    }
+    
+    current_constraints = relationship_constraints.get(relationship_status, "请根据当前关系状态合理设定情节")
+    
+    # 构建系统消息
+    system_message = f"""你是一位擅长创作浪漫爱情小说的AI，需要根据给定的场景和角色创作具有晋江言情小说风格的爱情故事。每个故事都是一段恋爱关系中的重要时刻。
+
+故事要求：
+1. 严格使用晋江言情小说的写作风格，包括：细腻的心理描写、恰到好处的对白、优美的场景描写
+2. 根据给定的游戏事件和角色属性创作故事
+3. 男女主角的名字固定为{male_name}和{female_name}
+4. 【非常重要】故事必须严格遵循当前的关系状态：{relationship_status}
+5. 【关系约束】{current_constraints}
+6. 字数控制在700字以内
+7. 故事要有情感深度，展现人物内心世界
+8. 提供生动的场景描写，让故事更有画面感
+9. 使用符合当代年轻人的语言风格，优美又不做作
+10. 确保故事情节符合逻辑，人物行为符合其性格特点
+11. 故事应该积极向上，充满希望
+12. 不要在故事结尾添加"【完】"或任何结束标记
+13. 不要在故事结尾添加总结段落或创作感想
+
+当前阶段：{current_stage} - {stage_description}
+当前关系：{relationship_status}
+
+违禁情节：
+- 如果关系是"陌生人"：禁止出现任何亲密行为、表白、约会等超前情节
+- 如果关系是"朋友"：禁止出现表白、亲吻、牵手、求婚、同居、结婚等超前情节
+- 如果关系是"恋人"：禁止出现求婚、同居、结婚等超前情节，除非特别指示"""
+
+    # 构建用户消息
+    user_message = f"""男主角 {male_name} 的属性：金钱 {male_info['money']}，健康 {male_info['health']}，好感度 {male_info['affection']}
+女主角 {female_name} 的属性：金钱 {female_info['money']}，健康 {female_info['health']}，好感度 {female_info['affection']}
+
+当前关系：{relationship_status}（请严格遵循这一关系状态创作情节，不要出现超前发展的情节）
+
+"""
+
+    # 添加当前阶段事件
+    if current_stage_events:
+        user_message += "本阶段发生的事件：\n"
+        for i, event in enumerate(current_stage_events):
+            if isinstance(event, dict):
+                character = event.get("character", "未知")
+                option = event.get("option", "未知")
+                effects = event.get("effects", {})
+                
+                user_message += f"事件{i+1}：{character}选择了\"{option}\"，";
+                
+                effect_descriptions = []
+                for attr, value in effects.items():
+                    if attr in ["money", "health", "affection"]:
+                        direction = "增加" if value > 0 else "减少"
+                        effect_descriptions.append(f"{attr} {direction} {abs(value)}")
+                
+                if effect_descriptions:
+                    user_message += "导致" + "，".join(effect_descriptions)
+                
+                user_message += "。\n"
+    else:
+        user_message += f"当前阶段还没有发生具体事件，请基于{male_name}和{female_name}处于{relationship_status}关系的背景创作故事。\n"
+    
+    # 添加之前的故事内容
+    if previous_story and not forget_previous_content:
+        user_message += f"\n之前的故事内容：\n{previous_story}\n\n请继续之前的故事，创作新的内容。记住，严格遵循关系状态为{relationship_status}的情节限制。"
+    else:
+        user_message += f"\n请根据以上信息创作一个全新的爱情故事，遵循晋江风格的言情小说写作特点。\n故事字数控制在700字以内。严格确保情节与{relationship_status}的关系状态相符。"
+    
+    # 调用API获取故事
+    try:
+        client = get_client()
+        response = client.chat.completions.create(
+            model="qwen-max",  # 使用阿里云模型
+            messages=[
+                {"role": "system", "content": system_message},
+                {"role": "user", "content": user_message}
+            ],
+            temperature=0.7,
+            max_tokens=2000
+        )
+        story = response.choices[0].message.content
+        
+        # 记录成功信息
+        elapsed_time = time.time() - start_time
+        logging.info(f"成功生成进行中的故事，耗时 {elapsed_time:.2f} 秒，字数约 {len(story)} 字")
+        
+        return story
+    except Exception as e:
+        logging.error(f"生成进行中的故事时出错: {e}")
+        return generate_fallback_story(
+            male_name=male_name,
+            female_name=female_name,
+            stage=current_stage,
+            relationship=relationship_status,
+            events=current_stage_events
+        )
+
+def format_events_for_prompt(events: List[Dict[str, Any]], male_name: str, female_name: str) -> str:
+    """格式化事件列表为提示文本
+
+    Args:
+        events: 事件列表
+        male_name: 男性角色名称
+        female_name: 女性角色名称
+
+    Returns:
+        格式化后的事件文本
+    """
+    if not events:
+        return ""
+    
+    formatted_events = []
+    for i, event in enumerate(events):
+        player = event.get("player")
+        player_name = male_name if player == "male" else female_name
+        option = event.get("option", {})
+        option_desc = option.get("description", "未知选项")
+        formatted_event = f"{i+1}. {player_name}选择了：{option_desc}"
+        
+        # 添加属性变化
+        effects = option.get("effects", {})
+        effect_texts = []
+        for attr, value in effects.items():
+            if value != 0:
+                change = "增加" if value > 0 else "减少"
+                effect_texts.append(f"{attr} {change} {abs(value)}")
+        
+        if effect_texts:
+            formatted_event += f"，导致{', '.join(effect_texts)}"
+        
+        formatted_events.append(formatted_event)
+    
+    return "\n".join(formatted_events)
+
+def get_stage_description(stage: int) -> str:
+    """获取阶段描述
+
+    Args:
+        stage: 游戏阶段
+
+    Returns:
+        阶段描述文本
+    """
+    stage_descriptions = {
+        1: "初次相识",
+        2: "相知相熟",
+        3: "浪漫约会",
+        4: "情感升温",
+        5: "共同生活",
+    }
+    return stage_descriptions.get(stage, f"第{stage}阶段")
+
+def get_stage_events(game_state: Dict[str, Any], stage: int) -> List[Dict[str, Any]]:
+    """从游戏状态中提取指定阶段的事件
+    
+    Args:
+        game_state: 游戏状态字典
+        stage: 要提取的阶段编号
+        
+    Returns:
+        该阶段的事件列表
+    """
+    events = game_state.get("events", [])
+    return [event for event in events if event.get("stage") == stage]
+
+def build_system_prompt(current_stage: int, relationship: str) -> str:
+    """构建系统提示词
+    
+    Args:
+        current_stage: 当前游戏阶段
+        relationship: 当前关系状态
+        
+    Returns:
+        系统提示词
+    """
+    stage_desc = {
+        1: "初识阶段",
+        2: "互相了解培养感情阶段",
+        3: "确认关系发展恋情阶段"
+    }.get(current_stage, "未知阶段")
+    
+    # 根据关系状态设置严格的情节约束
+    relationship_constraints = {
+        "陌生人": "双方刚认识或偶遇，情节应严格限制在初次接触的好奇、礼貌交谈或试探性了解，绝对不可出现亲密互动、告白、约会等超前情节",
+        "朋友": "双方处于友谊阶段，可以有日常交往、互相帮助、轻微暧昧，但绝对不能出现表白、亲吻、牵手等亲密行为，更不能出现求婚、同居、结婚等严重超前的情节",
+        "恋人": "双方已确认恋爱关系，可以有浪漫约会、情感表达和适度的亲密互动，但不应出现求婚、结婚、同居等超前情节"
+    }
+    
+    current_constraints = relationship_constraints.get(relationship, "请根据当前关系状态合理设定情节")
+    
+    system_prompt = f"""你是一位专业的言情小说作家，擅长写爱情故事。
+请根据用户提供的情境，以晋江言情小说风格，写一段精彩的爱情故事片段。
+当前处于{stage_desc}，主角关系是{relationship}。
+
+要求：
+1. 故事要符合真实的恋爱发展过程
+2. 【极其重要】故事情节必须严格符合当前关系状态：{relationship}
+3. 【关系约束】{current_constraints}
+4. 使用优美细腻的文笔，有细节描写和心理活动
+5. 根据男女主角的属性状态合理安排剧情
+6. 故事要有起承转合，情节连贯且有感情发展
+7. 根据提供的事件列表，按时间顺序合理展开故事
+8. 故事篇幅控制在700字以内
+9. 以第三人称视角描写，语言活泼自然，符合年轻人表达方式
+10. 不要出现任何超出现实的情节
+11. 不要在故事结尾添加"【完】"或任何结束标记
+12. 不要在故事结尾添加总结段落或创作感想
+
+违禁情节清单：
+- 如果关系是"陌生人"：禁止出现任何亲密行为、表白、约会等超前情节
+- 如果关系是"朋友"：禁止出现表白、亲吻、牵手、求婚、同居、结婚等超前情节
+- 如果关系是"恋人"：禁止出现求婚、同居、结婚等超前情节，除非特别指示
+"""
+    return system_prompt
+
+def build_user_prompt(
+    male_name: str, female_name: str,
+    male_money: int, male_affection: int, male_health: int,
+    female_money: int, female_affection: int, female_health: int,
+    current_stage: int, relationship: str, events: List[Dict[str, Any]]
+) -> str:
+    """构建用户提示词
+    
+    Args:
+        male_name: 男主角名字
+        female_name: 女主角名字
+        male_money/affection/health: 男主角属性
+        female_money/affection/health: 女主角属性
+        current_stage: 当前游戏阶段
+        relationship: 当前关系状态
+        events: 事件列表
+        
+    Returns:
+        用户提示词
+    """
+    stage_desc = {
+        1: "初识阶段",
+        2: "互相了解培养感情阶段",
+        3: "确认关系发展恋情阶段"
+    }.get(current_stage, "未知阶段")
+    
+    # 角色信息
+    user_prompt = f"""请根据以下信息，创作一段爱情故事片段：
+
+【角色信息】
+男主角：{male_name}（金钱:{male_money}，好感度:{male_affection}，健康值:{male_health}）
+女主角：{female_name}（金钱:{female_money}，好感度:{female_affection}，健康值:{female_health}）
+当前阶段：{stage_desc}
+当前关系：{relationship}
+
+【事件列表】
+"""
+    
+    # 添加事件
+    if events:
+        for i, event in enumerate(events, 1):
+            event_desc = event.get("description", "未知事件")
+            event_turn = "男主角" if event.get("turn") == "male" else "女主角"
+            event_choice = event.get("choice_description", "未知选择")
+            user_prompt += f"{i}. {event_turn}遇到：{event_desc}，选择了：{event_choice}\n"
+    else:
+        user_prompt += "暂无事件发生\n"
+    
+    user_prompt += "\n请根据以上信息，创作一个情节连贯、有感情发展的爱情故事片段。"
+    
+    return user_prompt
+
+def generate_bad_ending(game_state: Dict[str, Any]) -> str:
+    """生成游戏失败结局
+    
+    Args:
+        game_state: 游戏状态
+        
+    Returns:
+        失败结局故事
+    """
+    return generate_bad_ending_story(game_state)
+
+def get_events_for_stage(game_state: Dict[str, Any], stage: int) -> List[Dict[str, Any]]:
+    """获取特定阶段的事件
+    
+    Args:
+        game_state: 游戏状态
+        stage: 要获取事件的阶段
+        
+    Returns:
+        该阶段的事件列表
+    """
+    events = game_state.get("events", [])
+    return [event for event in events if event.get("stage", 1) == stage]
+
+def extract_character_info(game_state: Dict[str, Any], character_type: str) -> Dict[str, Any]:
+    """提取角色信息
+    
+    Args:
+        game_state: 游戏状态
+        character_type: 角色类型，"male"或"female"
+        
+    Returns:
+        包含角色信息的字典
+    """
+    character = game_state.get(character_type, {})
+    return {
+        "name": character.get("name", "男主角" if character_type == "male" else "女主角"),
+        "money": character.get("money", 5),
+        "health": character.get("health", 5),
+        "affection": character.get("affection", 5)
+    }
+
+def get_current_stage_events(game_state: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """获取当前阶段的事件
+    
+    Args:
+        game_state: 游戏状态
+        
+    Returns:
+        当前阶段的事件列表
+    """
+    current_stage = game_state.get("stage", 1)
+    # 首先尝试使用events_happened键
+    all_events = game_state.get("events_happened", [])
+    if not all_events:
+        # 如果没有，回退到使用events键
+        all_events = game_state.get("events", [])
+    
+    current_stage_events = []
+    
+    for event in all_events:
+        if isinstance(event, dict) and event.get("stage") == current_stage:
+            # 创建符合story_generator期望格式的事件对象
+            formatted_event = {
+                "stage": event.get("stage", current_stage),
+                "character": event.get("character", "未知"),
+                "option": event.get("option_chosen", event.get("option", "未知选择")),
+                "effects": event.get("effects", {})
+            }
+            current_stage_events.append(formatted_event)
+    
+    logging.info(f"获取当前阶段 {current_stage} 的事件, 共 {len(current_stage_events)} 个")
+    return current_stage_events
+
+def get_all_events(game_state: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """获取所有阶段的事件
+    
+    Args:
+        game_state: 游戏状态
+        
+    Returns:
+        所有事件列表
+    """
+    # 首先尝试使用events_happened键
+    all_events = game_state.get("events_happened", [])
+    if not all_events:
+        # 如果没有，回退到使用events键
+        all_events = game_state.get("events", [])
+    
+    formatted_events = []
+    for event in all_events:
+        if isinstance(event, dict):
+            # 创建符合story_generator期望格式的事件对象
+            formatted_event = {
+                "stage": event.get("stage", 1),
+                "character": event.get("character", "未知"),
+                "option": event.get("option_chosen", event.get("option", "未知选择")),
+                "effects": event.get("effects", {})
+            }
+            formatted_events.append(formatted_event)
+    
+    logging.info(f"获取所有事件, 共 {len(formatted_events)} 个")
+    return formatted_events 
